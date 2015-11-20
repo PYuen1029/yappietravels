@@ -1,0 +1,50 @@
+Models
+	Users
+	Countries
+	BlogPosts
+	Blog
+	Regions(?)
+	Photos
+
+
+Migrations
+	Users (modify the default)
+	Regions (one record for each region, just so you can link Countries)
+	Countries (one record for each country, just so you can link to posts)
+	BlogPosts (belongsTo relationship with Blog, hasMany relationship with Photos)
+	Blog (belongsTo relationship with User, hasMany BlogPosts)
+	Photos (belongsTo relationship with BlogPosts)
+
+
+Routes
+	Built in Laravel Auth routes
+
+	Route::resource(User); // CRUD for User model, so you can create, read(get the profile of a User), update (update information such as age, name, gender, etc.), delete Users. E.g., yappietravels.com/JaneDoe
+	
+	Route::resource(User.Blog) // CRUD for Blog model, so you can create, read (see below), update (might except this), delete Blogs. Might want to look at Sub-Domain Routing so you can do e.g., fooblog.yappietravels.com/Colombia/092015
+		@get:
+			middleware(Auth::isGuest || Auth::isNotUser) -> return that user's blog
+			middleware(Auth::isUser) -> allow user to modify her blog
+	
+	Route::get(Region) // display most recent posts for the selected region. E.g., yappietravels.com/Regions/NorthAfrica
+
+	Route::get(Region.Countries) // display most recent posts for the selected country. E.g., yappietravels.com/Countries/Ethiopia
+
+	Route::resource(Blog.Photos) // CRUD for photos. E.g., fooblog.yappietravels.com/photos
+	
+
+Controllers
+	Built in Laravel Auth controller
+
+	PagesController //for index page, handle route::get(region), handle route::get(region.countries)
+
+	UsersController
+
+	BlogsController
+
+	ResourcesController
+
+
+
+
+	
