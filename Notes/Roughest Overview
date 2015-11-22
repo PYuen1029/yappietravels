@@ -45,6 +45,46 @@ Controllers
 	ResourcesController
 
 
+Relationships
+	Users
+		hasMany(Blogs) [one to many]
+	Blog
+		hasMany(BlogPosts) [one to many]
+		belongsTo(Users) [many to one]
+	BlogPosts
+		hasMany(Photos) [one to many]
+		belongsTo(Blog) [many to one]
+	Photos
+		belongsTo(BlogPosts) [many to one]
+
+	Regions(?)
+		hasMany(Countries) [one to many]
+	Countries
+		hasMany(BlogPosts) [one to many]
+		belongsTo(Regions) [many to one]
+	
+User Experience
+	INDEX PAGE
+		{GUEST}
+			See a top nav-bar (which includes homepage link, link to list of all blogs, link to recent blogPosts/reviews?). Also login/register buttons on the right hand corner
+			See some stupid masthead/banner logo thing.
+			See a list of countries (at least in v0.1. Eventually it should show a world map where you can click on any country to see the blogposts/reviews of that country but I might have to outsource that part)
+				CLICK ON A COUNTRY
+					See a list of blogposts/reviews of that country
+			See a Featured Blogs section on the left half, and a Recent Blog Posts section on the right half
+			See a footer with copyright information
+		{USER}
+			Extends {GUEST}
+			On top nav-bar, there is a link to your admin panel
+				CLICK ADMIN
+
+Logic
+
+
+
+
+
+
 
 
 	

@@ -4,20 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Photos extends Model
+class Region extends Model
 {
     protected $fillable = [
     	'name',
-    	'path',
-    	'thumbnail_path'
+    	'vital_info'
     ];
+
 
     /**
      * RELATIONSHIPS
      */
-    
-    public function blogPost()
+
+    public function country()
     {
-    	$this->belongsTo('App\BlogPost');
+    	$this->hasMany(App\Country);
     }
 }

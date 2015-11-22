@@ -16,15 +16,19 @@ class CreateBlogPostsTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            // some timestamps for blog posts
-            $table->timestamps('published_at');
-            $table->timestamps('updated_at');
+            // SOME TIMESTAMPS FOR BLOG POSTS
+            $table->timestamp('published_at');
 
-            // the actual content
+            // THE ACTUAL CONTENT
             $table->string('title');
             $table->string('tagline')->nullable();
             $table->string('content');
 
+            // FOREIGN KEY FOR blog
+            $table->integer('blog_id')->unsigned();
+            $table->foreign('blog_id')
+                    ->references('id')->on('blogs')
+                    ->onDelete('cascade');
 
         });
     }
