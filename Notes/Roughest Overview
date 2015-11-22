@@ -77,6 +77,12 @@ User Experience
 			Extends {GUEST}
 			On top nav-bar, there is a link to your admin panel
 				CLICK ADMIN
+					See same nav-bar as {GUEST}/{USER}, probably will put that into a partial
+					See Admin Panel Heading
+						See "Create a Review" button
+						See recent reviews as bootstrap-nav-pills
+					See Profile Heading
+						See form (name, Age, About Me)
 
 Logic
 

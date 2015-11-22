@@ -10,16 +10,16 @@
 		countries == DONE
 		regions == LATER
 	work on barebones logic
-		code up a frontend index page
+		code up a frontend index page == DONE
+		create factories/db seeders for: 
+			blogs
+			blogposts
+			users
+			photos
 		do some controllers for all of that
 		work on authentication top-bar so you can register, login, admin panel
+			add authentication middlewares
 		code up a frontend for admin panel
-
-	create factories/db seeders for: 
-		blogs
-		blogposts
-		users
-		photos
 
 	work on regions and countries
 

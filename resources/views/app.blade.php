@@ -5,24 +5,21 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Yappie Travels: Index</title>
+	
+	<!-- Styles -->
 
-	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/app.css" rel="stylesheet">
 
-	<!-- Scripts -->
-	<script src="/js/jquery-2.1.4.js"></script>
-	<script src="/js/bootstrap.js"></script>
-
-	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
-	@yield('css')
+	@yield('styles')
 
-	@yield('js')
-	<script>
-    	$(document).ready(function() {
-    		$('div.alert').delay(4500).slideUp(300);
-    	});
-	</script>
+	<!-- Scripts -->
+	<script src="/js/app.js"></script>
+
+	@yield('scripts')
+	
+
 </head>
 <body>
 	<!-- FLASH MESSAGE -->
@@ -44,7 +41,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ url('/') }}">FooDNB</a>
+				<a class="navbar-brand" href="{{ url('/') }}">YappieTravels</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar">
@@ -64,6 +61,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
+								<!-- <li><a href="{{ url('/auth/logout') }}">Logout</a></li> MAKE THIS A LINK TO ADMIN PANEL-->
 								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
 							</ul>
 						</li>
