@@ -11,7 +11,7 @@
 		regions == LATER
 	work on barebones logic
 		code up a frontend index page == DONE
-		create factories/db seeders for: 
+		create factories/db seeders for: == DONE
 			blogs
 			blogposts
 			users

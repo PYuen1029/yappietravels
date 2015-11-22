@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+        factory(App\Photo::class, 10)->create();
+
         $this->call('CountriesTableSeeder');
 
         Model::reguard();

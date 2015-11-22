@@ -19,7 +19,7 @@ class BlogPost extends Model
     
     public function photo()
     {
-    	$this->hasMany('App\Photos');
+    	$this->hasMany('App\Photo');
     	
     }
 }
