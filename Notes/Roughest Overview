@@ -1,10 +1,16 @@
 Models
 	Users
+		Blog
+		Profile
 	Countries
-	BlogPosts
-	Blog
+			BlogPosts
+				Photos
+
+	
+	
+	
 	Regions(?)
-	Photos
+	
 
 
 Migrations
@@ -51,10 +57,10 @@ Relationships
 	Blog
 		hasMany(BlogPosts) [one to many]
 		belongsTo(Users) [many to one]
-	BlogPosts
+	BlogPost
 		hasMany(Photos) [one to many]
 		belongsTo(Blog) [many to one]
-	Photos
+	Photo
 		belongsTo(BlogPosts) [many to one]
 
 	Regions(?)

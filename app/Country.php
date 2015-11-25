@@ -17,13 +17,13 @@ class Country extends Model
      */
     public function blogPost()
     {
-    	$this->hasMany('App\BlogPost');
+    	return $this->hasMany('App\BlogPost');
 
     }
 
     public function region()
     {
-    	$this->belongsTo('App\Region');
+    	return $this->belongsTo('App\Region');
     	
     }
 }

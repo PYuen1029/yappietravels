@@ -16,14 +16,27 @@ class Blog extends Model
 
     public function blogPosts()
     {
-    	$this->hasMany('App\BlogPost');
+    	return $this->hasMany('App\BlogPost');
 
     }
 
     public function user()
     {
-    	$this->belongsTo('App\User');
+    	return $this->belongsTo('App\User');
     }
 
+    /**
+     * SCOPES
+     */
     
+    public function scopeFeatured($query)
+    {  
+		return $query->where('featured', 1);
+    }
+    
+    public function scopeRecent($query)
+    {
+    	return $query->orderBy('id', 'desc')->take(5);
+    }
+
 }

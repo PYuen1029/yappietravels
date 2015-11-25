@@ -11,8 +11,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Blog::class, function (Faker\Generator $faker){
 	return[
-		'name' 				=> $faker->sentence($nbWords = 4),
-		'tagline' 			=> $faker->sentence($nbWords = 13),
+		'name' 				=> $faker->sentencenoperiod($nbWords = 4),
+		'tagline' 			=> $faker->sentencenoperiod($nbWords = 13),
 		'user_id' 			=> factory('App\User')->create()->id,
 
 	];
@@ -22,12 +22,25 @@ $factory->define(App\BlogPost::class, function (Faker\Generator $faker){
     return[
         'published_at'      => Carbon\Carbon::now(),
         
-        'title'				=> $faker->sentence($nbWords=8),
-        'tagline'			=> $faker->sentence($nbWords=13),
-        'content'			=> $faker->paragraphs($nb = 3, true),
+        'title'				=> $faker->sentencenoperiod(8),
+        'tagline'			=> $faker->sentencenoperiod(13),
+        'content'			=> $faker->paragraphs(4, true),
 
         'blog_id'			=> factory('App\Blog')->create()->id,
 
+    ];
+});
+
+
+$factory->defineAs(App\BlogPost::class, 'extraPosts', function ($faker) {
+    return [
+        'published_at'      => Carbon\Carbon::now(),
+        
+        'title'             => $faker->sentencenoperiod($nbWords=8),
+        'tagline'           => $faker->sentencenoperiod($nbWords=13),
+        'content'           => $faker->paragraphs($nb = 3, true),
+
+        'blog_id'           => App\Blog::findOrFail($faker->numberBetween($min = 1, $max = 10))->id,
     ];
 });
 
@@ -41,5 +54,13 @@ $factory->define(App\Photo::class, function (Faker\Generator $faker){
     ];
 });
 
+$factory->defineAs(App\Photo::class, 'extraPhotos', function ($faker) {
+    return [
+        'path'              => $faker->imageUrl(800, 640, 'city', true),
+        'thumbnail_path'    => $faker->imageUrl(800, 640, 'city', true),
+
+        'blog_post_id'      => App\BlogPost::findOrFail($faker->numberBetween($min = 1, $max = 10))->id,
+    ];
+});
 
 

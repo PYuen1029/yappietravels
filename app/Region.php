@@ -18,6 +18,6 @@ class Region extends Model
 
     public function country()
     {
-    	$this->hasMany(App\Country);
+    	return $this->hasMany(App\Country);
     }
 }

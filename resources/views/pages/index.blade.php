@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+Yappie Travels: Index
+@stop
+
 @section('css')
 @stop
 
@@ -11,7 +15,7 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Yappie Travels</h1>
-            <p>Post your travel experiences for others to see.</p>
+            <p>Post your adventures, you crazy 20-something</p>
 
         </div>
     </div>
@@ -43,28 +47,24 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"> FEATURED BLOGS</div>
                     <div class="panel-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">Some Example Blog</li>
-                            <li class="list-group-item">Some Example Blog</li>
-                            <li class="list-group-item">Some Example Blog</li>
-                            <li class="list-group-item">Some Example Blog</li>
-                            <li class="list-group-item">Some Example Blog</li>
-                        </ul>
+                        <div class="list-group">
+                            @foreach($featuredBlogs as $featuredBlog)
+                                <a href="#" class="list-group-item">{{ $featuredBlog->name }}</a>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading"> FEATURED BLOGS</div>
+                    <div class="panel-heading"> RECENT POSTS</div>
                     <div class="panel-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">Some Example Post</li>
-                            <li class="list-group-item">Some Example Post</li>
-                            <li class="list-group-item">Some Example Post</li>
-                            <li class="list-group-item">Some Example Post</li>
-                            <li class="list-group-item">Some Example Post</li>
-                        </ul>
+                        <div class="list-group">
+                            @foreach($recentPosts as $recentPost)
+                                <a href="#" class="list-group-item">{{ $recentPost->title }}</a>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

@@ -18,6 +18,6 @@ class Photo extends Model
     
     public function blogPost()
     {
-    	$this->belongsTo('App\BlogPost');
+    	return $this->belongsTo('App\BlogPost');
     }
 }

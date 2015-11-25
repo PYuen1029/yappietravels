@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Yappie Travels: Index</title>
+
+	<title> @yield('title') </title>
 	
 	<!-- Styles -->
 
@@ -46,8 +47,17 @@
 
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="nav navbar-nav">
-					<li><a href="#">About</a></li>
+					<li><a href="{{ route('blog.index') }}">
+						Blogs
+					</a></li>
 				</ul>
+
+				<ul class="nav navbar-nav">
+					<li><a href="{{ route('blogPosts.index') }}">
+						Posts
+					</a></li>
+				</ul>
+
 
 				<ul class="nav navbar-nav navbar-right">
 					@if(auth()->guest())
