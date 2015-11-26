@@ -40,10 +40,15 @@ class User extends Model implements AuthenticatableContract,
     /**
      * RELATIONSHIPS
      */
-    
-    public function blogs()
+    // naming convention is singular of the relationship
+    public function blog()
     {
         return $this->hasMany('App\Blog');
+    }
+
+    public function profile()
+    {
+        return $this->hasMany('App\Profile');
     }
     
     /**

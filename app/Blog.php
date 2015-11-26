@@ -14,7 +14,7 @@ class Blog extends Model
      * RELATIONSHIPS
      */
 
-    public function blogPosts()
+    public function blogPost()
     {
     	return $this->hasMany('App\BlogPost');
 

@@ -6,6 +6,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' 			=> $faker->email,
         'password' 			=> bcrypt(str_random(10)),
         'remember_token' 	=> str_random(10),
+        'hometown'          => $faker->city,
+        'brief_description' => $faker->paragraph(5),
+        'age'               => $faker->numberBetween(20, 50),
     ];
 });
 

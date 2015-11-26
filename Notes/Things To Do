@@ -9,7 +9,7 @@
 	make the countries seeders
 		countries == DONE
 		regions == LATER
-	work on barebones logic
+	work on barebones logic == DONE
 		code up the frontend index page == DONE
 			create factories/db seeders for: == DONE
 				blogs
@@ -20,15 +20,20 @@
 				work on showing a mockup of the index page == DONE
 				add the nav-bar items for archive of blogs, posts == DONE
 				work on showing blogs / blog posts / photos == DONE
-				work on full CRUD functionality for Users
-					create new Profile model
-					authentication
-				work on creating blogs / blogposts / photos 
-				work on editing blogs / blogposts / photos
-				work on deleting blogs / blogposts / photos
+	work on full CRUD functionality for Users
+		create new Profile model to store name, age, gender, etc.
+		authentication
 		work on authentication top-bar so you can register, login, admin panel
 			add authentication middlewares
-		code up a frontend for admin panel
+
+	work on full CRUD functionality for Blogs
+
+	work on full CRUD functionality for BlogPosts
+
+	work on full CRUD functionality for Photos
+		dropzone.js
+
+	code up a frontend for admin panel
 
 	work on regions and countries
 		probably add in PagesController to display all BlogPosts where country is in country. Probably means a BlogPost should have a country field (probably with the country code)
