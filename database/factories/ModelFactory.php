@@ -9,6 +9,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'hometown'          => $faker->city,
         'brief_description' => $faker->paragraph(5),
         'age'               => $faker->numberBetween(20, 50),
+        'profile_pic'       => $faker->imageUrl(600, 450, 'people', true),
     ];
 });
 
@@ -28,7 +29,7 @@ $factory->define(App\BlogPost::class, function (Faker\Generator $faker){
         'title'				=> $faker->sentencenoperiod(8),
         'tagline'			=> $faker->sentencenoperiod(13),
         'content'			=> $faker->paragraphs(4, true),
-
+        'featured_image'    => $faker->imageUrl(600, 350, 'city', true),
         'blog_id'			=> factory('App\Blog')->create()->id,
 
     ];
@@ -42,7 +43,7 @@ $factory->defineAs(App\BlogPost::class, 'extraPosts', function ($faker) {
         'title'             => $faker->sentencenoperiod($nbWords=8),
         'tagline'           => $faker->sentencenoperiod($nbWords=13),
         'content'           => $faker->paragraphs($nb = 3, true),
-
+        'featured_image'    => $faker->imageUrl(600, 350, 'city', true),
         'blog_id'           => App\Blog::findOrFail($faker->numberBetween($min = 1, $max = 10))->id,
     ];
 });

@@ -21,9 +21,14 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->rememberToken();
 
-            $table->string('hometown');
-            $table->string('brief_description');
-            $table->string('age');
+            // PROFILE INFO
+            $table->string('hometown')->nullable();
+            $table->string('brief_description')->nullable();
+            $table->string('age')->nullable();
+            $table->string('profile_pic')->nullable();
+
+            // SOFTDELETES
+            $table->softDeletes();
             
         });
     }

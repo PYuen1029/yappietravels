@@ -20,11 +20,22 @@
 				work on showing a mockup of the index page == DONE
 				add the nav-bar items for archive of blogs, posts == DONE
 				work on showing blogs / blog posts / photos == DONE
-	work on full CRUD functionality for Users
-		create new Profile model to store name, age, gender, etc.
-		authentication
+	work on full CRUD functionality for Users == DONE
+		Users Controller except index, create == DONE
+			show
+				show the profile == DONE
+			edit
+				edit the profile == DONE
+			delete
+				soft delete? == DONE
+			IsCurrentUser middleware == DONE
+
+
 		work on authentication top-bar so you can register, login, admin panel
 			add authentication middlewares
+		work on admin panel
+
+	Add that package to resize and manipulate images from ProjectFlyer
 
 	work on full CRUD functionality for Blogs
 

@@ -24,10 +24,12 @@
 </head>
 <body>
 	<!-- FLASH MESSAGE -->
-	@if (Session::has('flash_message'))
-		<div class="alert alert-{{ session('flash_level') }}">
-			{{ session('flash_message') }}
-		</div>
+	@if (Session::has('flash_notification.message'))
+	    <div class="alert alert-{{ Session::get('flash_notification.level') }}">
+	        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+	        {{ Session::get('flash_notification.message') }}
+	    </div>
 	@endif
 
 	@include('errors.alerts')
@@ -72,7 +74,15 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<!-- <li><a href="{{ url('/auth/logout') }}">Logout</a></li> MAKE THIS A LINK TO ADMIN PANEL-->
-								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+								<li>
+									<a href="{{ url('/auth/logout') }}">Logout</a>
+								</li>
+								<li>
+									<a href="{{ route('user.show', [
+										'user' => Auth::user()->id
+									]) }}"> View Profile </a>
+								</li>
+								
 							</ul>
 						</li>
 					@endif

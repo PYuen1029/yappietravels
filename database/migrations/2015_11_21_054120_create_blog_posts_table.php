@@ -23,6 +23,7 @@ class CreateBlogPostsTable extends Migration
             $table->string('title');
             $table->string('tagline')->nullable();
             $table->string('content');
+            $table->string('featured_image');
 
             // FOREIGN KEY FOR blog
             $table->integer('blog_id')->unsigned();

@@ -1,17 +1,11 @@
 Models
 	Users
 		Blog
-		Profile
 	Countries
 			BlogPosts
 				Photos
-
-	
-	
-	
 	Regions(?)
 	
-
 
 Migrations
 	Users (modify the default)
@@ -99,4 +93,6 @@ Logic
 
 
 
-	
+	Possible ideas
+		slideshow projector look
+			also make blog photos/posts rateable

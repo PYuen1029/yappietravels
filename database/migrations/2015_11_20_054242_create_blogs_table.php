@@ -17,7 +17,7 @@ class CreateBlogsTable extends Migration
             $table->timestamps();
 
             $table->string('name');
-            $table->string('tagline');
+            $table->string('tagline')->default('My wonderful adventures and travels.');
             $table->boolean('featured')->default(false);
 
             // FOREIGN KEY FOR user

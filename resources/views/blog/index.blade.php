@@ -13,7 +13,7 @@
 @section('content')
 	<div class="container">
 		<h1> All Posts </h1>
-		@foreach($blog->blogPosts as $blogPost)
+		@foreach($blog->blogPost as $blogPost)
 			<div class="row">	
 				<h3 class="blogPost-title"> <a 
 					href="{{ route('blog.blogPost.show', [
