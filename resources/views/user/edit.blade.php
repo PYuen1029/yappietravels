@@ -27,6 +27,13 @@
 	        </div>
 
 	        <div class="form-group">
+		        {!! Form::label('email', 'Email') !!}
+		        {!! Form::text('email', null, [
+		        	'class' => "form-control"
+		        ]) !!}
+	        </div>
+
+	        <div class="form-group">
 				{!! Form::label('hometown', 'Hometown') !!}
 		        {!! Form::text('hometown', null, [
 		        	'class' => "form-control"

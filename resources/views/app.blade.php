@@ -80,7 +80,7 @@
 								<li>
 									<a href="{{ route('user.show', [
 										'user' => Auth::user()->id
-									]) }}"> View Profile </a>
+									]) }}"> Edit Profile Settings </a>
 								</li>
 								
 							</ul>
