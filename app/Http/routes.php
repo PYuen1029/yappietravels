@@ -12,12 +12,18 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
 // APP ROUTES...
-Route::resource('blog', 'BlogController');
-Route::resource('blog.blogPost', 'BlogPostController', [
-	'except'	=> ['index']
-	]);
 Route::resource('user', 'UserController', [
 	'except'	=> ['index', 'create', 'store']
+	]);
+
+Route::resource('blog', 'BlogController', [
+	'except'	=> ['create', 'delete', 'store']
+	]);
+
+
+
+Route::resource('blog.blogPost', 'BlogPostController', [
+	'except'	=> ['index']
 	]);
 
 Route::get('/blogPost', [
@@ -31,6 +37,10 @@ Route::get('/', [
 	]);
 
 // ROUTE MODEL BINDINGS...
+Route::bind('user', function($value) {
+	return App\User::with('blog')->findOrFail($value);
+
+});
 
 Route::bind('blog', function($value) {
 	// de-hyphenate the blog name
@@ -46,9 +56,4 @@ Route::bind('blogPost', function($value) {
 
 	// return the Blog instance with the name of $value, with blogPosts
 	return App\BlogPost::with('photo')->where('title', $value)->first();
-});
-
-Route::bind('user', function($value) {
-	return App\User::with('blog')->findOrFail($value);
-
 });

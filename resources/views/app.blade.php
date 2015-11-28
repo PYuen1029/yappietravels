@@ -77,10 +77,29 @@
 								<li>
 									<a href="{{ url('/auth/logout') }}">Logout</a>
 								</li>
+
 								<li>
 									<a href="{{ route('user.show', [
 										'user' => Auth::user()->id
+									]) }}"> View Profile </a>
+								</li>
+
+								<li>
+									<a href="{{ route('user.edit', [
+										'user' => Auth::user()->id
 									]) }}"> Edit Profile Settings </a>
+								</li>
+
+								<li>
+									<a href="{{ route('blog.show', [
+										'blog' => Auth::user()->blog->name
+									]) }}"> View Blog </a>
+								</li>
+
+								<li>
+									<a href="{{ route('blog.edit', [
+										'blog' => Auth::user()->blog->name
+									]) }}"> Edit Blog Settings </a>
 								</li>
 								
 							</ul>

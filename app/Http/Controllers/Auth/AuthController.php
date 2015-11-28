@@ -15,6 +15,8 @@ use App\Blog;
 
 class AuthController extends Controller
 {
+    protected $validator;
+
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -38,13 +40,8 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    /*
-    Redirect path instead of /home
-     */
-    protected $redirectPath = '/';
-
     /**
-     * Get a validator for an incoming registration request.
+     * Get a validator for an incoming registration request. SPECIFIC to registering users, not general User validation that is provided by UserValidationRequest, therefore doesn't have to e.g., exclude the current user when checking if email is unique, because there is no current user.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -52,11 +49,18 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'email'             => 'required|email|max:150|unique:users',
+            'password'          => 'required|confirmed|min:6',
+            'blog_name'         => 'required|unique:blogs,name'
         ]);
     }
+
+    /*
+    Redirect path instead of /home
+     */
+    protected $redirectPath = '/';
+
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -91,6 +95,7 @@ class AuthController extends Controller
      */
     public function postRegister(UserValidationRequest $request)
     {
+        // extra validation specific to registering Users
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {

@@ -27,7 +27,7 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Blog Name (You can change this later)</label>
 							<div class="col-md-6">
-								<input type="text" class="form-control" name="blog_name" value="{{ old('email') }}">
+								<input type="text" class="form-control" name="blog_name" value="{{ old('blog_name') }}">
 							</div>
 						</div>
 

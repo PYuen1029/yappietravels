@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title')
-	YappieTravels: {{ $blog->name }}
+YappieTravels: All Blogs
 @stop
 
 @section('css')
@@ -12,17 +12,18 @@
 
 @section('content')
 	<div class="container">
-		<h1> All Posts </h1>
-		@foreach($blog->blogPost as $blogPost)
+		<h1> All Blogs </h1>
+		@foreach($allBlogs as $blog)
 			<div class="row">	
-				<h3 class="blogPost-title"> <a 
-					href="{{ route('blog.blogPost.show', [
-						'name' => $blog->name,
-						'title' => $blogPost->title
+				<h3 class="blog-name"> <a 
+					href="{{ route('blog.show', [
+						'name' => $blog->name
 					]) }}">
-					{{ $blogPost->title }} </a> </h3>
-				<p class="blogPost-tagline"> {{ $blogPost->tagline }} </p>
+					{{ $blog->name }} </a> </h3>
+				<p class="author"> {{ $blog->user->name }} </p>
+				<p class="blog-tagline"> {{ $blog->tagline }} </p>
 			</div>
 		@endforeach
 	</div>
+
 @stop

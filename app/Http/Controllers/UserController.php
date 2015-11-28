@@ -13,6 +13,8 @@ use App\Photo;
 use App\Region;
 use App\Country;
 use Illuminate\Support\Facades\DB;
+use Validator;
+use Auth;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -27,6 +29,14 @@ class UserController extends Controller
          $this->middleware('currentUser', ['except' => 'show']);
 
     }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email'             => 'required|email|max:150|unique:users,email,' . Auth::user()->id
+        ]);
+    }
+
 
     /**
      * Show a profile page.
@@ -61,6 +71,15 @@ class UserController extends Controller
      */
     public function update(UserValidationRequest $request, User $user)
     {
+        // also needs additional custom validation specific to updating User information. C.f. AuthController@postRegister
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
         $user->update($request->all());
 
         return redirect(route('user.show', ['user' => $user->id]));

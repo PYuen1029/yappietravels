@@ -21,7 +21,7 @@
 				add the nav-bar items for archive of blogs, posts == DONE
 				work on showing blogs / blog posts / photos == DONE
 	work on full CRUD functionality for Users == DONE
-		Users Controller except index, create == DONE
+		UserController except index, create == DONE
 			show
 				show the profile == DONE
 			edit
@@ -29,22 +29,27 @@
 			delete
 				soft delete? == DONE
 			IsCurrentUser middleware == DONE
-
-
-		work on authentication top-bar so you can register, login, admin panel
-			add authentication middlewares
-		work on admin panel
-
-	Add that package to resize and manipulate images from ProjectFlyer
+			Create form request to validate users == DONE
 
 	work on full CRUD functionality for Blogs
+		BlogController except create, delete
+			index 
+				show list of all blogs == DONE
+			show
+				show an individual blog's homepage == DONE
+			edit
+				edit the blog (name, banner (eventually), subtitle, tagline) == DONE
+
+
 
 	work on full CRUD functionality for BlogPosts
 
 	work on full CRUD functionality for Photos
 		dropzone.js
 
-	code up a frontend for admin panel
+	Add that package to resize and manipulate images from ProjectFlyer
+
+	code up a frontend for editing the blog settings e.g., adding a banner
 
 	work on regions and countries
 		probably add in PagesController to display all BlogPosts where country is in country. Probably means a BlogPost should have a country field (probably with the country code)
