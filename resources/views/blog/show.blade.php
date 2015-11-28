@@ -12,7 +12,10 @@
 
 @section('content')
 	<div class="container">
-		<h1> All Posts </h1>
+		<h1> {{ $blog->name }} </h1>
+		<span class="tagline"> {{ $blog->tagline }}</span>
+
+		<h3> All Posts </h3>
 		@foreach($blog->blogPost as $blogPost)
 			<div class="row">	
 				<h3 class="blogPost-title"> <a 

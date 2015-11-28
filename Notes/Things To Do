@@ -31,7 +31,7 @@
 			IsCurrentUser middleware == DONE
 			Create form request to validate users == DONE
 
-	work on full CRUD functionality for Blogs
+	work on full CRUD functionality for Blogs == DONE
 		BlogController except create, delete
 			index 
 				show list of all blogs == DONE
@@ -40,9 +40,16 @@
 			edit
 				edit the blog (name, banner (eventually), subtitle, tagline) == DONE
 
-
-
 	work on full CRUD functionality for BlogPosts
+		BlogPostController
+			index == DONE
+			show == DONE
+			create == LEFT OFF AT, NEED TO HYPHENATE BLOG NAMES, AND FINISH CREATE FORM
+			edit
+			update
+			destroy
+
+	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
 
 	work on full CRUD functionality for Photos
 		dropzone.js

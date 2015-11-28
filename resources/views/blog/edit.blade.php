@@ -15,7 +15,7 @@
 	<div class="container">
 		{!! Form::model($blog, [
 			'method' => 'PATCH',
-			'route' => ['blog.update', $blog->name],
+			'route' => ['blog.update', str_replace(' ', '-', $blog->name)],
 			'class' => "col-xs-10"
 		]) !!}    
 

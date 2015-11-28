@@ -92,13 +92,13 @@
 
 								<li>
 									<a href="{{ route('blog.show', [
-										'blog' => Auth::user()->blog->name
+										'blog' => str_replace(' ', '-', Auth::user()->blog->name)
 									]) }}"> View Blog </a>
 								</li>
 
 								<li>
 									<a href="{{ route('blog.edit', [
-										'blog' => Auth::user()->blog->name
+										'blog' => str_replace(' ', '-', Auth::user()->blog->name)
 									]) }}"> Edit Blog Settings </a>
 								</li>
 								

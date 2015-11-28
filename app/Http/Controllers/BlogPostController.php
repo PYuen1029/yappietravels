@@ -26,7 +26,7 @@ class BlogPostController extends Controller
     {
         $allPosts = BlogPost::with('blog')->orderBy('id', 'desc')->get();
 
-        return view('pages.allPosts', compact('allPosts'));
+        return view('blogPosts.index', compact('allPosts'));
     }
 
     /**
@@ -36,7 +36,9 @@ class BlogPostController extends Controller
      */
     public function create()
     {
-        //
+        $blog = Auth::user()->blog;
+
+        return view('blogPosts.create', compact('blog'));
     }
 
     /**

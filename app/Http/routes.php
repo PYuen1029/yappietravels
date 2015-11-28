@@ -22,9 +22,7 @@ Route::resource('blog', 'BlogController', [
 
 
 
-Route::resource('blog.blogPost', 'BlogPostController', [
-	'except'	=> ['index']
-	]);
+Route::resource('blog.blogPost', 'BlogPostController');
 
 Route::get('/blogPost', [
 	'uses'		=> 'BlogPostController@index',

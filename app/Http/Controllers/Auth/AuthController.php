@@ -41,7 +41,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Get a validator for an incoming registration request. SPECIFIC to registering users, not general User validation that is provided by UserValidationRequest, therefore doesn't have to e.g., exclude the current user when checking if email is unique, because there is no current user.
+     * Get a validator for registering new users, on top of UserValidationRequest.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
