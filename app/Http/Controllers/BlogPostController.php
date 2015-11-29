@@ -57,7 +57,9 @@ class BlogPostController extends Controller
 
         $blog->blogPost()->save($blogPost);
 
-        return Redirect::route('blog.show', ['blog' => getUrlForThisName($blog)]);
+        return Redirect::route('blog.blogPost.edit', [
+            'blog' => getUrlForThisName($blog),
+            'blogPost' => getUrlForThisName($blogPost)]);
 
     }
 

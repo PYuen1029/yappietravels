@@ -30,7 +30,7 @@ class BlogPostValidationRequest extends Request
             'title'             =>  'required|max:255|unique:blog_posts,title' . "$postId" . '|string',
             'tagline'           =>  'max:255|string',
             'content'           =>  'string|required',
-            'published_at'      =>  'date_format:Y-m-d\TH:i|required'
+            'published_at'      =>  'date_format:Y-m-d|required'
         ];
     }
 }

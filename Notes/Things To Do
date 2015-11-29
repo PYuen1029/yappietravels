@@ -51,20 +51,26 @@
 
 	work on full CRUD functionality for Photos
 		PhotoController
-			create 		== 
-			update 		==
-			destroy 	==			
+			dropzone.js == DONE
+
+			create 		== DONE
+			destroy 	== DONE
+
+		Add dropzone functionality on blogPost.create
+
+		Inscription
+			just use the update method of PhotoController. So you actually would do so after uploading the photo. You come back to the page and then you add your caption.
+			add nullable caption on migration
+			refresh
+			allow editing of caption from blog.edit
 			
-			dropzone.js
 
 	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
-
-	Add that package to resize and manipulate images from ProjectFlyer
 
 	code up a frontend for editing the blog settings e.g., adding a banner
 
 	work on regions and countries
-		probably add in PagesController to display all BlogPosts where country is in country. Probably means a BlogPost should have a country field (probably with the country code)
+		probably add in PagesController to display all BlogPosts where country is in country.Probably means a BlogPost should have a country field (probably with the country code)
 		
 
 

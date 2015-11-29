@@ -47,13 +47,13 @@
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ route('blog.index') }}">
-						Blogs
+						All Blogs
 					</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav">
 					<li><a href="{{ route('blogPosts.index') }}">
-						Posts
+						All Posts
 					</a></li>
 				</ul>
 
@@ -102,7 +102,7 @@
 								<li>
 									<a href="{{ route('blog.edit', [
 										'blog' => getUrlForThisName(Auth::user()->blog)
-									]) }}"> Edit Blog </a>
+									]) }}"> Edit Blog and Posts</a>
 								</li>
 								
 							</ul>

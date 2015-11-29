@@ -5,12 +5,20 @@
 @stop
 
 @section('css')
+<style>
+.page-title {
+	padding: 0 30px;
+
+}
+</style>
 @stop
 
 @section('js')
 @stop
 
 @section('content')
+	<h1 class="col-xs-10 page-title"> Create a New Blog Post </h1>
+
 	<div class="container">
 		{!! Form::open([
 			'route' => ['blog.blogPost.store', getUrlForThisName($blog)],
@@ -42,12 +50,10 @@
 			<!-- WILL APPARENTLY NEED SOME JAVASCRIPT TO SHOW CURRENT DATETIME, SEE http://encosia.com/setting-the-value-of-a-datetime-local-input-with-javascript/ -->
 			<div class="form-group">
 				{!! Form::label('published_at', 'Publish Date') !!}
-				{!! Form::input('datetime-local', 'published_at', date(DateTime::W3C), [
+				{!! Form::input('date', 'published_at', date('Y-m-d'), [
 					'class' =>	"form-control"
 				]) !!}
 			</div>
-
-			<!-- FEATURED IMAGE -->
 
 			<div class="form-group">
 				{!! Form::submit("Submit", ['class' => 'btn btn-primary form-control']) !!}

@@ -7,17 +7,22 @@
 @section('css')
 <link rel="stylesheet" type="text/css" href="/css/dropzone.css">
 <style> 
-.dropzone, .blogPostPhoto {
+.blogPostPhoto {
 	margin-top: 25px;
 }
 
+.page-title {
+	padding: 0 30px;
 
+}
 
 </style>
 @stop
 
 @section('content')
 	<div class="container">
+		<h1 class="col-xs-12 page-title"> Edit a New Blog Post </h1>
+
 		{!! Form::model($blogPost, [
 			'method' => 'PATCH',
 			'route' => ['blog.blogPost.update', getUrlForThisName($blogPost->blog), getUrlForThisName($blogPost)],
@@ -49,7 +54,7 @@
 			<!-- WILL APPARENTLY NEED SOME JAVASCRIPT TO SHOW CURRENT DATETIME, SEE http://encosia.com/setting-the-value-of-a-datetime-local-input-with-javascript/ -->
 			<div class="form-group">
 				{!! Form::label('published_at', 'Publish Date') !!}
-				{!! Form::input('datetime-local', 'published_at', date(DateTime::W3C), [
+				{!! Form::input('date', 'published_at', null, [
 					'class' =>	"form-control"
 				]) !!}
 			</div>
@@ -62,7 +67,8 @@
 
 		<!-- IMAGES -->
 		<div class="col-xs-4">
-			
+			{!! Form::label('photo', 'Add Photos Here') !!}
+
 			<!-- DROPZONE -->
 			<form action="{{ route('blog.blogPost.photo.store', [
 				'blog' 			=>	getUrlForThisName($blogPost->blog),
@@ -74,7 +80,7 @@
 				{{ csrf_field() }}
 			</form>
 			
-			<!-- IMAGES -->
+			<!-- DELETE IMAGES -->
 			@foreach($blogPost->photo as $photo)
 				<img src="/{{ $photo->thumbnail_path }}" 
 				class="blogPostPhoto">

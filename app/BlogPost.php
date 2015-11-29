@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use App\Photo;
+use Carbon\Carbon;
+use DateTime;
 
 
 
@@ -17,6 +19,10 @@ class BlogPost extends Model
     	'content',
         'blog_id'
 
+    ];
+
+    protected $dates = [
+        'published_at'
     ];
 
     /**
@@ -45,6 +51,19 @@ class BlogPost extends Model
 
         return $rows;
     }
+
+    /**
+     * MUTATORS AND ACCESSORS
+     */
+    
+    public function getPublishedAtAttribute($date)
+    {
+        $formattedDate = new Carbon($date);
+
+        return $formattedDate->format('Y-m-d');
+
+    }
+
 
     /**
      * EXTRA METHODS

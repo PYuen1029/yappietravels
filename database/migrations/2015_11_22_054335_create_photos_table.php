@@ -19,6 +19,8 @@ class CreatePhotosTable extends Migration
             $table->string('name');
             $table->string('path');
             $table->string('thumbnail_path');
+            
+            $table->string('inscription')->nullable();
 
             // FOREIGN KEY FOR photo
             $table->integer('blog_post_id')->unsigned();
