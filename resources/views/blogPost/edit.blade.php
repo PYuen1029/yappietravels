@@ -7,15 +7,13 @@
 @section('css')
 <link rel="stylesheet" type="text/css" href="/css/dropzone.css">
 <style> 
-.dropzone {
+.dropzone, .blogPostPhoto {
 	margin-top: 25px;
 }
 
-</style>
-@stop
 
-@section('js')
-<script src="/js/dropzone.js"></script>
+
+</style>
 @stop
 
 @section('content')
@@ -63,15 +61,39 @@
 		{!! Form::close() !!}
 
 		<!-- IMAGES -->
-		<form action="{{ route('blog.blogPost.photo.store', [
+		<div class="col-xs-4">
+			
+			<!-- DROPZONE -->
+			<form action="{{ route('blog.blogPost.photo.store', [
 				'blog' 			=>	getUrlForThisName($blogPost->blog),
 				'blogPost' 		=>	getUrlForThisName($blogPost)
 			]) }}"
-			method="POST"
-      		class="dropzone col-xs-4"
-      		id="my-awesome-dropzone">
-      		{{ csrf_field() }}
-      	</form>
+				method="POST"
+				id="addPhotosForm"
+				class="dropzone col-xs-12">
+				{{ csrf_field() }}
+			</form>
+			
+			<!-- IMAGES -->
+			@foreach($blogPost->photo as $photo)
+				<img src="/{{ $photo->thumbnail_path }}" 
+				class="blogPostPhoto">
+
+			@endforeach
+
+		</div>
 
 	</div>
+@stop
+
+@section('js')
+<script src="/js/dropzone.js"></script>
+<script>
+	Dropzone.options.addPhotosForm = {
+		paramName: 'photo',
+		maxFilesize: 20,
+		acceptedFiles: '.jpg, .jpeg, .png, .bmp'
+	};
+</script>
+
 @stop

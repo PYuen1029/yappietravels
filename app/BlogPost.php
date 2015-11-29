@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
+use App\Photo;
 
 
 
@@ -43,5 +44,14 @@ class BlogPost extends Model
         $rows = BlogPost::orderBy('id', 'desc')->take(5);
 
         return $rows;
+    }
+
+    /**
+     * EXTRA METHODS
+     */
+    
+    public function addPhoto(Photo $photo)
+    {
+        return $this->photo()->save($photo);
     }
 }

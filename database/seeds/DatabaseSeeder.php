@@ -14,12 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        factory(App\Photo::class, 10)->create();
+        factory(App\BlogPost::class, 10)->create();
 
         // create some extra posts
         factory(App\BlogPost::class, 'extraPosts', 5)->create();
-        
-        factory(App\Photo::class, 'extraPhotos', 5)->create();
 
         $this->call('FeaturedBlogsSeeder');
         
