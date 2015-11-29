@@ -18,8 +18,7 @@
 		</p>
 		@foreach($blogPost->photo as $photo)
 			<div class="row">	
-				<img src="/{{ $photo->thumbnail_path }}"
-				class="blogPostPhoto" />
+				@include('blogPost.partials._showPhotos')
 			</div>
 		@endforeach
 	</div>

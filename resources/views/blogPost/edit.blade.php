@@ -86,13 +86,8 @@
 			
 			<!-- EDIT AND DELETE PHOTO -->
 			@foreach($blogPost->photo as $photo)
-				<img src="/{{ $photo->thumbnail_path }}" 
-				class="blogPostPhoto">
-
-				<div>
-					{{ $photo->inscription }}
-				</div>
-				
+				@include('blogPost.partials._showPhotos')
+		
 				<!-- EDIT PHOTO -->
 				<div>
 					<a href="{{ route('blog.blogPost.photo.edit', [
