@@ -23,6 +23,15 @@ use App\Http\Controllers\Controller;
 
 class BlogPostController extends Controller
 {
+    // MIDDLEWARES
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => array('index', 'show')]);
+         
+        $this->middleware('currentUser', ['except' => array('index', 'show')]);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
