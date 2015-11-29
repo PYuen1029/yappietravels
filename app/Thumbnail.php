@@ -8,7 +8,7 @@ class Thumbnail
 {
 	public function make($src, $destination){
 		Image::make($src)
-			->fit(200)
+			->fit(270)
 			->save($destination);
 	}
 	

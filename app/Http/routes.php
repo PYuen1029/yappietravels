@@ -28,7 +28,7 @@ Route::get('/blogPost', [
 	]);
 
 Route::resource('blog.blogPost.photo', 'PhotoController',[
-	'except' 	=> ['index', 'show', 'create']
+	'only' 	=> ['store', 'destroy']
 	]);
 
 Route::get('/', [
@@ -56,4 +56,8 @@ Route::bind('blogPost', function($value) {
 
 	// return the Blog instance with the name of $value, with blogPosts
 	return App\BlogPost::with('photo')->where('title', $value)->first();
+});
+
+Route::bind('photo', function($value) {
+	return App\Photo::findOrFail($value);
 });

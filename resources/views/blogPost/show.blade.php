@@ -18,7 +18,8 @@
 		</p>
 		@foreach($blogPost->photo as $photo)
 			<div class="row">	
-				<img src="{{ $photo->path }}" />
+				<img src="/{{ $photo->thumbnail_path }}"
+				class="blogPostPhoto" />
 			</div>
 		@endforeach
 	</div>

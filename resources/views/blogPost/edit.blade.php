@@ -78,6 +78,20 @@
 			@foreach($blogPost->photo as $photo)
 				<img src="/{{ $photo->thumbnail_path }}" 
 				class="blogPostPhoto">
+				{!! Form::open([
+					'route' => ['blog.blogPost.photo.destroy', 
+					getUrlForThisName($blogPost->blog), 
+					getUrlForThisName($blogPost),
+					$photo->id], 
+					'method' => 'delete'
+				]) !!}
+
+					{!! Form::submit('Delete Photo', [
+						'class'		=>	'btn btn-info col-sm-9',
+						'role' 		=> 	'button'
+					]) !!}
+
+				{!! Form::close() !!}
 
 			@endforeach
 
