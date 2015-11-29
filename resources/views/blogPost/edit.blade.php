@@ -16,6 +16,10 @@
 
 }
 
+.btn-input {
+	margin: 0 auto;
+}
+
 </style>
 @stop
 
@@ -80,10 +84,27 @@
 				{{ csrf_field() }}
 			</form>
 			
-			<!-- DELETE IMAGES -->
+			<!-- EDIT AND DELETE PHOTO -->
 			@foreach($blogPost->photo as $photo)
 				<img src="/{{ $photo->thumbnail_path }}" 
 				class="blogPostPhoto">
+
+				<div>
+					{{ $photo->inscription }}
+				</div>
+				
+				<!-- EDIT PHOTO -->
+				<div>
+					<a href="{{ route('blog.blogPost.photo.edit', [
+						'blog' 		=> getUrlForThisName($blogPost->blog), 
+						'blogPost' 	=> getUrlForThisName($blogPost),
+						'photo'		=> $photo->id
+						]) }}" class="btn btn-info col-sm-9" role="button">
+						Edit Photo
+					</a>
+				</div>
+
+				<!-- DELETE PHOTO -->
 				{!! Form::open([
 					'route' => ['blog.blogPost.photo.destroy', 
 					getUrlForThisName($blogPost->blog), 

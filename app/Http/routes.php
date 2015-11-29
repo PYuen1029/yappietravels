@@ -28,7 +28,7 @@ Route::get('/blogPost', [
 	]);
 
 Route::resource('blog.blogPost.photo', 'PhotoController',[
-	'only' 	=> ['store', 'destroy']
+	'except' 	=> ['index', 'show', 'create']
 	]);
 
 Route::get('/', [
