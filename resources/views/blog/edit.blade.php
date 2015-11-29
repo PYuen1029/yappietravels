@@ -15,7 +15,7 @@
 	<div class="container">
 		{!! Form::model($blog, [
 			'method' => 'PATCH',
-			'route' => ['blog.update', str_replace(' ', '-', $blog->name)],
+			'route' => ['blog.update', getUrlForThisName($blog)],
 			'class' => "col-xs-10"
 		]) !!}    
 
@@ -38,6 +38,43 @@
 			</div>
 
 		{!! Form::close() !!}
+
+		<hr>
+
+		<div class="col-sm-9">
+			<h2> Blog Posts </h2>
+			@foreach($blogPosts as $blogPost)
+				<div class="row">
+					@include('partials._blogPost-preview', [
+						'blog' => $blogPost->blog
+					])
+
+					<!-- EDIT BUTTON -->
+					<div class="col-sm-9">
+						<a href="{{ route('blog.blogPost.edit', [
+							'blog' 		=> getUrlForThisName(Auth::user()->blog), 
+							'blogPost' 	=> getUrlForThisName($blogPost)
+							]) }}" class="btn btn-info col-sm-9" role="button">
+							Edit Post
+						</a>
+					</div>
+
+					<!-- DELETE BUTTON -->
+					<div class="col-sm-9">
+						{!! Form::open([
+							'route' => ['blog.blogPost.destroy', getUrlForThisName($blogPost->blog), getUrlForThisName($blogPost)], 
+							'method' => 'delete'
+						]) !!}
+							{!! Form::submit('Delete Post', [
+								'class'		=>	'btn btn-info col-sm-9',
+								'role' 		=> 	'button'
+							]) !!}
+						{!! Form::close() !!}
+
+					</div>
+				</div>
+			@endforeach
+		</div>
 
 	</div>
 @stop

@@ -13,7 +13,7 @@
 @section('content')
 	<div class="container">
 		{!! Form::open([
-			'route' => ['blog.blogPost.store', $blog->name],
+			'route' => ['blog.blogPost.store', getUrlForThisName($blog)],
 			'method' => 'POST',
 			'class' => "col-xs-10"
 		]) !!}
@@ -39,7 +39,19 @@
 				]) !!}
 			</div>
 
+			<!-- WILL APPARENTLY NEED SOME JAVASCRIPT TO SHOW CURRENT DATETIME, SEE http://encosia.com/setting-the-value-of-a-datetime-local-input-with-javascript/ -->
+			<div class="form-group">
+				{!! Form::label('published_at', 'Publish Date') !!}
+				{!! Form::input('datetime-local', 'published_at', date(DateTime::W3C), [
+					'class' =>	"form-control"
+				]) !!}
+			</div>
+
 			<!-- FEATURED IMAGE -->
+
+			<div class="form-group">
+				{!! Form::submit("Submit", ['class' => 'btn btn-primary form-control']) !!}
+			</div>
 
 		{!! Form::close() !!}
 	</div>

@@ -139,6 +139,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
         /*
@@ -204,6 +205,7 @@ return [
         'Form'      => Illuminate\Html\FormFacade::class,
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
 
     ],
 

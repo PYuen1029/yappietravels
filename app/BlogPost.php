@@ -13,7 +13,9 @@ class BlogPost extends Model
     	'published_at',
     	'title',
     	'tagline',
-    	'content'
+    	'content',
+        'blog_id'
+
     ];
 
     /**

@@ -42,17 +42,22 @@
 
 	work on full CRUD functionality for BlogPosts
 		BlogPostController
-			index == DONE
-			show == DONE
-			create == LEFT OFF AT, NEED TO HYPHENATE BLOG NAMES, AND FINISH CREATE FORM
-			edit
-			update
-			destroy
-
-	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
+			index 		== DONE
+			show 		== DONE
+			create 		== DONE
+			edit 		== DONE
+			update 		== DONE
+			destroy 	== DONE
 
 	work on full CRUD functionality for Photos
-		dropzone.js
+		PhotoController
+			create 		== 
+			update 		==
+			destroy 	==			
+			
+			dropzone.js
+
+	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
 
 	Add that package to resize and manipulate images from ProjectFlyer
 

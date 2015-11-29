@@ -41,23 +41,5 @@
 			<a href="{{ route('user.edit', ['user' => $user->id ]) }}" class="btn btn-info col-sm-6" role="button">Edit Profile</a>
 		</div>
 
-
-		<hr>
-
-		<div class="col-sm-9">
-			<h2> Blog Posts </h2>
-			@foreach($blogPosts as $blogPost)
-				<div class="col-sm-4">
-					<img src="{{ $blogPost->featured_image }}" />
-
-					<h3> {{$blogPost->title}} </h3>
-
-					<span>{{ $blogPost->tagline}} </span>
-
-					<div>{{ $blogPost->content}} </div>
-				</div>
-			@endforeach
-		</div>
-
 	</div>
 @stop

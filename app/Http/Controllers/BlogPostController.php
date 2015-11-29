@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\BlogPostValidationRequest;
+use Redirect;
 
 use App\User;
 use App\Blog;
@@ -11,6 +13,10 @@ use App\Photo;
 use App\Region;
 use App\Country;
 use Illuminate\Support\Facades\DB;
+use Validator;
+use Auth;
+
+use Carbon\Carbon;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -26,7 +32,7 @@ class BlogPostController extends Controller
     {
         $allPosts = BlogPost::with('blog')->orderBy('id', 'desc')->get();
 
-        return view('blogPosts.index', compact('allPosts'));
+        return view('blogPost.index', compact('allPosts'));
     }
 
     /**
@@ -34,11 +40,9 @@ class BlogPostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Blog $blog)
     {
-        $blog = Auth::user()->blog;
-
-        return view('blogPosts.create', compact('blog'));
+        return view('blogPost.create', compact('blog'));
     }
 
     /**
@@ -47,9 +51,14 @@ class BlogPostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogPostValidationRequest $request, Blog $blog)
     {
-        //
+        $blogPost = new BlogPost($request->all());
+
+        $blog->blogPost()->save($blogPost);
+
+        return Redirect::route('blog.show', ['blog' => getUrlForThisName($blog)]);
+
     }
 
     /**
@@ -60,7 +69,7 @@ class BlogPostController extends Controller
      */
     public function show(Blog $blog, BlogPost $blogPost)
     {
-        return view('blogPosts.show', compact('blogPost'));
+        return view('blogPost.show', compact('blogPost'));
     }
 
     /**
@@ -69,9 +78,9 @@ class BlogPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Blog $blog, BlogPost $blogPost)
     {
-        //
+        return view('blogPost.edit', compact('blogPost'));
     }
 
     /**
@@ -81,9 +90,11 @@ class BlogPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BlogPostValidationRequest $request, Blog $blog, BlogPost $blogPost)
     {
-        //
+        $blogPost->update($request->all());
+
+        return Redirect::route('blog.edit', ['blog' => getUrlForThisName($blog)]);
     }
 
     /**
@@ -92,8 +103,10 @@ class BlogPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Blog $blog, BlogPost $blogPost)
     {
-        //
+        $blogPost->delete();
+
+        return Redirect::route('blog.edit', ['blog' => getUrlForThisName($blog)]);
     }
 }

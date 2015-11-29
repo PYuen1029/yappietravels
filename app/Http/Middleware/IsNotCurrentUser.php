@@ -30,7 +30,10 @@ class IsNotCurrentUser
         }
 
         // assign $checkId to $request->route('blogPost')...->id if this is a blogPost.edit
-        else {}
+        else 
+        {
+            $checkId = Auth::user()->id;
+        }
 
         if($checkId !== Auth::user()->id)
         {

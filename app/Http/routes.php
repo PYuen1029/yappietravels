@@ -20,13 +20,15 @@ Route::resource('blog', 'BlogController', [
 	'except'	=> ['create', 'delete', 'store']
 	]);
 
-
-
 Route::resource('blog.blogPost', 'BlogPostController');
 
 Route::get('/blogPost', [
 	'uses'		=> 'BlogPostController@index',
 	'as'		=> 'blogPosts.index'
+	]);
+
+Route::resource('blog.blogPost.photo', 'PhotoController',[
+	'except' 	=> ['index', 'show', 'create']
 	]);
 
 Route::get('/', [

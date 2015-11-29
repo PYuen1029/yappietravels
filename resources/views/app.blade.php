@@ -13,13 +13,10 @@
 
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
-	@yield('styles')
+	@yield('css')
 
-	<!-- Scripts -->
-	<script src="/js/app.js"></script>
-
-	@yield('scripts')
 	
+	<script src="/js/app.js"></script>	
 
 </head>
 <body>
@@ -75,6 +72,12 @@
 							<ul class="dropdown-menu" role="menu">
 								<!-- <li><a href="{{ url('/auth/logout') }}">Logout</a></li> MAKE THIS A LINK TO ADMIN PANEL-->
 								<li>
+									<a href="{{ route('blog.blogPost.create', [
+										getUrlForThisName(Auth::user()->blog)
+									]) }}"> Create a New Post </a>
+								</li>
+
+								<li>
 									<a href="{{ url('/auth/logout') }}">Logout</a>
 								</li>
 
@@ -92,14 +95,14 @@
 
 								<li>
 									<a href="{{ route('blog.show', [
-										'blog' => str_replace(' ', '-', Auth::user()->blog->name)
+										'blog' => getUrlForThisName(Auth::user()->blog)
 									]) }}"> View Blog </a>
 								</li>
 
 								<li>
 									<a href="{{ route('blog.edit', [
-										'blog' => str_replace(' ', '-', Auth::user()->blog->name)
-									]) }}"> Edit Blog Settings </a>
+										'blog' => getUrlForThisName(Auth::user()->blog)
+									]) }}"> Edit Blog </a>
 								</li>
 								
 							</ul>
@@ -112,8 +115,10 @@
 	<div class="container">
 	@yield('content')
 	</div>
-	
 
+<!-- Scripts -->
+@yield('js')
 
 </body>
 </html>
+

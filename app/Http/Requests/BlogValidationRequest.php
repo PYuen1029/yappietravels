@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Auth;
 
 class BlogValidationRequest extends Request
 {
@@ -24,8 +25,8 @@ class BlogValidationRequest extends Request
     public function rules()
     {
         return [
-            'name' => "alpha_num|required|unique:blogs",
-            'tagline' => "alpha_num"
+            'name' => "required|unique:blogs,name,". Auth::user()->id,
+            'tagline' => "string|max:255"
         ];
     }
 }

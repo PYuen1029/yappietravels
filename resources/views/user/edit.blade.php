@@ -42,8 +42,9 @@
 
 	    	<div class="form-group">
 		        {!! Form::label('brief_description', 'Brief Description') !!}
-		        {!! Form::text('brief_description', null, [
-		        	'class' => "form-control"
+		        {!! Form::textarea('brief_description', null, [
+		        	'class' => 	"form-control",
+		        	'size' 	=> 	"30x5"
 		        ]) !!}
 		    </div>
 

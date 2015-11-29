@@ -46,9 +46,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        $blogPosts = $user->blog()->first()->blogPost()->orderBy('id', 'desc')->get();
-
-        return view('user.show', compact('user', 'blogPosts'));
+        return view('user.show', compact('user'));
     }
 
     /**

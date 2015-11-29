@@ -18,6 +18,11 @@ class AuthController extends Controller
     protected $validator;
 
     /*
+    Redirect path instead of /home
+     */
+    protected $redirectPath = '/';
+
+    /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
     |--------------------------------------------------------------------------
@@ -54,13 +59,6 @@ class AuthController extends Controller
             'blog_name'         => 'required|unique:blogs,name'
         ]);
     }
-
-    /*
-    Redirect path instead of /home
-     */
-    protected $redirectPath = '/';
-
-
 
     /**
      * Create a new user instance after a valid registration.

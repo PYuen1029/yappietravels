@@ -17,7 +17,7 @@ YappieTravels: All Blogs
 			<div class="row">	
 				<h3 class="blog-name"> <a 
 					href="{{ route('blog.show', [
-						'name' => $blog->name
+						'name' => getUrlForThisName($blog)
 					]) }}">
 					{{ $blog->name }} </a> </h3>
 				<p class="author"> {{ $blog->user->name }} </p>

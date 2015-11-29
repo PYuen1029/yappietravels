@@ -15,6 +15,7 @@ use Validator;
 use Auth;
 
 use App\Http\Requests;
+use App\Http\Requests\BlogValidationRequest;
 use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
@@ -22,27 +23,10 @@ class BlogController extends Controller
     // MIDDLEWARES
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => array('index', 'show')]);
          
-        $this->middleware('currentUser', ['except' => 'show', 'index']);
+        $this->middleware('currentUser', ['except' => array('index', 'show')]);
 
-    }
-
-    // VALIDATOR
-    protected $validator;
-
-    /**
-     * Get a validator for updating blog information
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|unique:blogs,name,'. Auth::user()->id,
-            'tagline' => 'max:255'
-        ]);
     }
 
     /**
@@ -66,7 +50,9 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        return view('blog.show', compact('blog'));
+        $blogPosts = $blog->blogPost()->orderBy('id', 'desc')->get();
+
+        return view('blog.show', compact('blog', 'blogPosts'));
     }
 
     /**
@@ -77,7 +63,9 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        return view('blog.edit', compact('blog'));
+        $blogPosts = $blog->blogPost()->orderBy('id', 'desc')->get();
+
+        return view('blog.edit', compact('blog', 'blogPosts'));
 
     }
 
@@ -88,20 +76,11 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(BlogValidationRequest $request, Blog $blog)
     {
-        // extra validation specific to registering Users
-        $validator = $this->validator($request->all());
-
-        if ($validator->fails()) {
-            $this->throwValidationException(
-                $request, $validator
-            );
-        }
-
         $blog->update($request->all());
 
-        return redirect(route('blog.show', ['blog' => str_replace(' ', '-', $blog->name)]));
+        return redirect(route('blog.show', ['blog' => getUrlForThisName($blog)]));
     }
 
 }
