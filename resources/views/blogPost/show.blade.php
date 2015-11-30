@@ -5,6 +5,12 @@
 @stop
 
 @section('css')
+<style> 
+.col-xs-4:nth-child(3n+1){
+    clear: left;
+}
+
+</style>
 @stop
 
 @section('js')
@@ -16,10 +22,12 @@
 		<p>
 			{!! nl2br(e($blogPost->content)) !!}
 		</p>
-		@foreach($blogPost->photo as $photo)
-			<div class="row">	
-				@include('blogPost.partials._showPhotos')
-			</div>
-		@endforeach
+		<div class="col-xs-12">
+			@foreach($blogPost->photo as $photo)
+				<div class="col-xs-4">	
+					@include('blogPost.partials._showPhotos')
+				</div>
+			@endforeach
+		</div>
 	</div>
 @stop

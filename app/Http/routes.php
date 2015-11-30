@@ -44,18 +44,18 @@ Route::bind('user', function($value) {
 
 Route::bind('blog', function($value) {
 	// de-hyphenate the blog name
-	$value = str_replace('-', ' ', $value);
+	$value = getNameForThisUrl($value);
 
 	// return the Blog instance with the name of $value, with blogPosts
-	return App\Blog::with('blogPost')->where('name', $value)->first();
+	return App\Blog::with('blogPost')->where('name', $value)->firstOrFail();
 });
 
 Route::bind('blogPost', function($value) {
 	// de-hyphenate the blog name
-	$value = str_replace('-', ' ', $value);
+	$value = getNameForThisUrl($value);
 
 	// return the Blog instance with the name of $value, with blogPosts
-	return App\BlogPost::with('photo')->where('title', $value)->first();
+	return App\BlogPost::with('photo')->where('title', $value)->firstOrFail();
 });
 
 Route::bind('photo', function($value) {

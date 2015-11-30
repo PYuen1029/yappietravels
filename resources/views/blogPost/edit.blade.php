@@ -20,6 +20,10 @@
 	margin: 0 auto;
 }
 
+.col-xs-4:nth-child(3n+1){
+    clear: left;
+}
+
 </style>
 @stop
 
@@ -83,40 +87,45 @@
 				class="dropzone col-xs-12">
 				{{ csrf_field() }}
 			</form>
-			
-			<!-- EDIT AND DELETE PHOTO -->
+						
+		</div>
+
+		<!-- EDIT AND DELETE PHOTO -->
+		<div class="col-xs-12">
 			@foreach($blogPost->photo as $photo)
-				@include('blogPost.partials._showPhotos')
-		
-				<!-- EDIT PHOTO -->
-				<div>
-					<a href="{{ route('blog.blogPost.photo.edit', [
-						'blog' 		=> getUrlForThisName($blogPost->blog), 
-						'blogPost' 	=> getUrlForThisName($blogPost),
-						'photo'		=> $photo->id
-						]) }}" class="btn btn-info col-sm-9" role="button">
-						Edit Photo
-					</a>
-				</div>
+				<div class="col-xs-4">
+					@include('blogPost.partials._showPhotos')
+			
+					<!-- EDIT PHOTO -->
+					<div>
+						<a href="{{ route('blog.blogPost.photo.edit', [
+							'blog' 		=> getUrlForThisName($blogPost->blog), 
+							'blogPost' 	=> getUrlForThisName($blogPost),
+							'photo'		=> $photo->id
+							]) }}" class="btn btn-info col-sm-9" role="button">
+							Edit Photo
+						</a>
+					</div>
 
-				<!-- DELETE PHOTO -->
-				{!! Form::open([
-					'route' => ['blog.blogPost.photo.destroy', 
-					getUrlForThisName($blogPost->blog), 
-					getUrlForThisName($blogPost),
-					$photo->id], 
-					'method' => 'delete'
-				]) !!}
-
-					{!! Form::submit('Delete Photo', [
-						'class'		=>	'btn btn-info col-sm-9',
-						'role' 		=> 	'button'
+					<!-- DELETE PHOTO -->
+					{!! Form::open([
+						'route' => ['blog.blogPost.photo.destroy', 
+						getUrlForThisName($blogPost->blog), 
+						getUrlForThisName($blogPost),
+						$photo->id], 
+						'method' => 'delete'
 					]) !!}
 
-				{!! Form::close() !!}
+						{!! Form::submit('Delete Photo', [
+							'class'		=>	'btn btn-info col-sm-9',
+							'role' 		=> 	'button'
+						]) !!}
+
+					{!! Form::close() !!}
+
+				</div>
 
 			@endforeach
-
 		</div>
 
 	</div>
