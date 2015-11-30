@@ -5,12 +5,8 @@
 @stop
 
 @section('css')
-<style> 
-.col-xs-4:nth-child(3n+1){
-    clear: left;
-}
+<link rel="stylesheet" type="text/css" href="/css/blogPost.css">
 
-</style>
 @stop
 
 @section('js')

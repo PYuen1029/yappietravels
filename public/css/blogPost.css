@@ -1,0 +1,14 @@
+/*
+==================================
+===== STYLING FOR BLOG POSTS =====
+==================================
+ */
+
+.col-xs-4:nth-child(3n+1){
+    clear: left;
+}
+
+.blogPostPhoto {
+	margin-top: 20px;
+}
+

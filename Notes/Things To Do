@@ -58,16 +58,17 @@
 
 		Add dropzone functionality on blogPost.create
 
-		Inscription
-			just use the update method of PhotoController. So you actually would do so after uploading the photo. You come back to the page and then you add your caption.
+		Inscription == DONE
+			just use the update method of PhotoController. So you actually would do so after uploading the photo. You come back to the page and then you add your caption. 
 			add nullable caption on migration
 			refresh
 			allow editing of caption from blog.edit
-			
-
-	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
+		
+	use https://github.com/codrops/GridGallery to toy with the gallery
 
 	code up a frontend for editing the blog settings e.g., adding a banner
+
+	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
 
 	work on regions and countries
 		probably add in PagesController to display all BlogPosts where country is in country.Probably means a BlogPost should have a country field (probably with the country code)

@@ -1,5 +1,7 @@
-<img src="/{{ $photo->thumbnail_path }}" class="blogPostPhoto">
+<figure>
+	
+	<img src="/{{ $photo->thumbnail_path }}" class="blogPostPhoto">
 
-<div>
+<figcaption>
 	{{ $photo->inscription }}
-</div>
+</figcaption>

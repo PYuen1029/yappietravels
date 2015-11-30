@@ -6,22 +6,10 @@
 
 @section('css')
 <link rel="stylesheet" type="text/css" href="/css/dropzone.css">
+<link rel="stylesheet" type="text/css" href="/css/blogPost.css">
 <style> 
-.blogPostPhoto {
-	margin-top: 25px;
-}
-
 .page-title {
 	padding: 0 30px;
-
-}
-
-.btn-input {
-	margin: 0 auto;
-}
-
-.col-xs-4:nth-child(3n+1){
-    clear: left;
 }
 
 </style>
