@@ -78,11 +78,17 @@
 						
 		</div>
 
-		<!-- EDIT AND DELETE PHOTO -->
+		<!-- EDIT AND DELETE PHOTO GRID-WRAP SECTION-->
 		<div class="col-xs-12">
 			@foreach($blogPost->photo as $photo)
 				<div class="col-xs-4">
-					@include('blogPost.partials._showPhotos')
+					<figure>
+						<img src="/{{ $photo->thumbnail_path }}" class="blogPostPhoto">
+
+						<figcaption>
+							{{ $photo->inscription }}
+						</figcaption>
+					</figure>
 			
 					<!-- EDIT PHOTO -->
 					<div>
