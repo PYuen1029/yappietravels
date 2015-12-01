@@ -1,10 +1,9 @@
 <li>
-
 	<figure>
-		<img src="/{{ $photo->thumbnail_path }}" alt="img04"/>
+		<img src="/{{ $photo->thumbnail_path }}" alt="img01" />
 
 		<figcaption>
-			<h3>
+			<h3> 
 				Letterpress asymmetrical
 			</h3>
 			<p>
