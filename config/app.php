@@ -140,6 +140,7 @@ return [
         Illuminate\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        GridPrinciples\Friendly\Providers\FriendlyServiceProvider::class,
 
 
         /*
