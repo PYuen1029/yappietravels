@@ -47,8 +47,15 @@
 			]) !!}    
 
 				<div class="form-group">
-					{!! Form::label('inscription', 'Inscription') !!}
-					{!! Form::textarea('inscription', null, [
+					{!! Form::label('inscription_title', 'Inscription Title') !!}
+					{!! Form::text('inscription_title', null, [
+						'class' => "form-control inscription-input",
+					]) !!}
+				</div>
+
+				<div class="form-group">
+					{!! Form::label('inscription_content', 'Inscription Content') !!}
+					{!! Form::textarea('inscription_content', null, [
 						'class' => 	"form-control inscription-input",
 						'size'	=>	"20x3"
 					]) !!}

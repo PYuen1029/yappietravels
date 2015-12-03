@@ -25,8 +25,9 @@ class PhotoValidationRequest extends Request
     public function rules()
     {
         return [
-			'photo'			=> 'mimes:jpg,jpeg,png,bmp',
-			'inscription'	=> 'string|max:255'
+			'photo'					=> 'mimes:jpg,jpeg,png,bmp',
+			'inscription_title'		=> 'string|max:50',
+			'inscription_content'	=> 'string|max:255'
         ];
     }
 }

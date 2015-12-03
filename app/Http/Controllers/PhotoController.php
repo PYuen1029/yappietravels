@@ -30,7 +30,8 @@ class PhotoController extends Controller
     protected function requireInscription(array $data)
     {
         return Validator::make($data, [
-            'inscription'       => 'required',
+            'inscription_title'         => 'required',
+            'inscription_content'       => 'required',
         ]);
     }
 
@@ -57,7 +58,8 @@ class PhotoController extends Controller
             );
         }
 
-        $photo->inscription = $request['inscription'];
+        $photo->inscription_title = $request['inscription_title'];
+        $photo->inscription_content = $request['inscription_content'];
         $photo->save();
 
         return redirect(route('blog.blogPost.edit', [
