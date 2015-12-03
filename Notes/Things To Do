@@ -66,9 +66,19 @@
 		
 	use https://github.com/codrops/GridGallery to toy with the gallery == DONE
 
-	
+	Add Friends functionality
+
+		pivot table
+
+		some functions on the user model (addfriend, )
+
+
 
 	code up a frontend for editing the blog settings e.g., adding a banner
+
+	Miscellanea
+
+		change edit on user.show so it only shows when you are current user. Probably need a helper function that returns boolean that asks if Auth::user is the user.
 
 	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
 
