@@ -35,14 +35,14 @@
 			<ul class="grid">
 				<li class="grid-sizer"></li><!-- for Masonry column width -->
 				@foreach($blogPost->photo as $photo)
-					@include('blogPost.partials._grid')
+					@include('blogPost.partials._gridgallery', ['path' => 'thumbnail_path' ])
 				@endforeach
 			</ul>
 		</section><!-- // grid-wrap -->
 		<section class="slideshow">
 			<ul>
 				@foreach($blogPost->photo as $photo)
-					@include('blogPost.partials._slideshow')
+					@include('blogPost.partials._gridgallery', ['path' => 'path' ])
 				@endforeach						
 			</ul>
 			<nav>

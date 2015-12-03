@@ -1,0 +1,1 @@
+So you follow a blog. Then if you do, in your status feed (on users.index) you get automatic updates from their blogs (all their blogPosts). Use a pivot table friends_users to set up friendship. 

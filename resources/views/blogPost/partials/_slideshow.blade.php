@@ -1,12 +1,12 @@
 <li>
 	<figure>
-		<img src="/{{ $photo->path }}" alt="img01"/>
+		<img src="/{{ $photo->path }}" />
 		<figcaption>
 			<h3>
-				THIS IS A TITLE
+				{{$photo->inscription_title}}
 			</h3>
 			<p>
-				Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.
+				{{$photo->inscription_content}}
 			</p>
 		</figcaption>
 	</figure>

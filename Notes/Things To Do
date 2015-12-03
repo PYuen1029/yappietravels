@@ -56,7 +56,7 @@
 			create 		== DONE
 			destroy 	== DONE
 
-		Add dropzone functionality on blogPost.create
+		Add dropzone functionality on blogPost.create == ALMOST
 
 		Inscription == DONE
 			just use the update method of PhotoController. So you actually would do so after uploading the photo. You come back to the page and then you add your caption. 
@@ -64,7 +64,9 @@
 			refresh
 			allow editing of caption from blog.edit
 		
-	use https://github.com/codrops/GridGallery to toy with the gallery
+	use https://github.com/codrops/GridGallery to toy with the gallery == DONE
+
+	
 
 	code up a frontend for editing the blog settings e.g., adding a banner
 

@@ -1,6 +1,6 @@
 <li>
 	<figure>
-		<img src="/{{ $photo->thumbnail_path }}" alt="img01"/>
+		<img src="/{{ $photo->$path }}" />
 		<figcaption>
 			<h3>
 				{{$photo->inscription_title}}
