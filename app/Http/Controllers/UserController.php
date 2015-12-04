@@ -15,6 +15,7 @@ use App\Country;
 use Illuminate\Support\Facades\DB;
 use Validator;
 use Auth;
+use Carbon\Carbon;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -26,7 +27,7 @@ class UserController extends Controller
     {
          $this->middleware('auth');
          
-         $this->middleware('currentUser', ['except' => 'show']);
+         $this->middleware('currentUser', ['except' => ['show', 'addFriend'] ]);
 
     }
 
@@ -35,6 +36,19 @@ class UserController extends Controller
         return Validator::make($data, [
             'email'             => 'required|email|max:150|unique:users,email,' . Auth::user()->id
         ]);
+    }
+
+    /**
+     * Show a home page for when the user is logged in.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $currentUser = Auth::user();
+
+        return view('user.index', compact('currentUser'));
     }
 
 
@@ -94,5 +108,16 @@ class UserController extends Controller
         $user->delete();
 
         return redirect('/');   
+    }
+
+    public function addFriend(User $user)
+    {
+        Auth::user()->befriend($user, [
+            'start'      => Carbon::now(),
+        ]);
+
+        flash()->success("You sent a friend request to $user->name");
+
+        return redirect()->back();
     }
 }

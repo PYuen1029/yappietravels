@@ -40,7 +40,8 @@ class IsNotCurrentUser
 
             flash()->error('You do not have permission to visit that page');
 
-            return redirect('/');
+            return redirect()->back();
+
         };  
 
         return $next($request);

@@ -41,5 +41,18 @@
 			<a href="{{ route('user.edit', ['user' => $user->id ]) }}" class="btn btn-info col-sm-6" role="button">Edit Profile</a>
 		</div>
 
+		<!-- ADD FRIEND BUTTON -->
+		<div class="col-sm-9">
+			<!-- IF THESE GUYS ARE FRIENDS, SHOW AN INACTIVE BUTTTON -->
+			@if($user->isFriendsWith(Auth::user()))
+				<a href="{{ route('addFriend', ['user' => $user->id ]) }}" class="btn disabled btn-info col-sm-6" role="button">You're already friends with this person</a>
+
+			@else
+			<!-- TODO THIS SHOULD BE A FORM FOR SECURITY REASONS -->
+				<a href="{{ route('addFriend', ['user' => $user->id ]) }}" class="btn btn-info col-sm-6" role="button">Add Friend</a>
+
+			@endif
+		</div>
+
 	</div>
 @stop

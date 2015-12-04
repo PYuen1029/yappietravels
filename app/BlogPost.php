@@ -22,7 +22,8 @@ class BlogPost extends Model
     ];
 
     protected $dates = [
-        'published_at'
+        'published_at',
+        'updated_at'
     ];
 
     /**

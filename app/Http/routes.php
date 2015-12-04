@@ -11,9 +11,27 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 
-// APP ROUTES...
+// FRIENDSHIP ROUTES
+Route::get('user/{user}/addFriend', [
+	'as' => 'addFriend',
+	'uses' => 'UserController@addFriend'
+	]);
+
+Route::get('friend/{user}/approveFriend', [
+	'as' => 'approveFriend',
+	'uses' => 'FriendController@approveFriend'
+	]);
+
+Route::get('friend/{user}/denyFriend', [
+	'as' => 'denyFriend',
+	'uses' => 'FriendController@denyFriend'
+	]);
+
+
+
+// RESOURCE ROUTES...
 Route::resource('user', 'UserController', [
-	'except'	=> ['index', 'create', 'store']
+	'except'	=> ['create', 'store']
 	]);
 
 Route::resource('blog', 'BlogController', [
@@ -21,6 +39,7 @@ Route::resource('blog', 'BlogController', [
 	]);
 
 Route::resource('blog.blogPost', 'BlogPostController');
+
 
 Route::get('/blogPost', [
 	'uses'		=> 'BlogPostController@index',
@@ -61,3 +80,5 @@ Route::bind('blogPost', function($value) {
 Route::bind('photo', function($value) {
 	return App\Photo::findOrFail($value);
 });
+
+

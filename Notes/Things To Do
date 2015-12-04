@@ -68,9 +68,15 @@
 
 	Add Friends functionality
 
-		pivot table
+		Add friend (send a friend request) button on user.show == DONE
 
-		some functions on the user model (addfriend, )
+		Accept Friend (accept (and show) a friend request) button on user.index == DONE
+
+		Show all friends == DONE
+
+		Show that two users are friends (on user.show) == DONE
+
+		See new blogposts and (status updates?) on status feed == DONE
 
 
 
