@@ -86,7 +86,7 @@
 						<img src="/{{ $photo->thumbnail_path }}" class="blogPostPhoto">
 
 						<figcaption>
-							{{ $photo->inscription }}
+							@include('blogPost.partials._inscription')
 						</figcaption>
 					</figure>
 			
@@ -97,7 +97,7 @@
 							'blogPost' 	=> getUrlForThisName($blogPost),
 							'photo'		=> $photo->id
 							]) }}" class="btn btn-info col-sm-9" role="button">
-							Edit Photo
+							Add/Edit Inscription
 						</a>
 					</div>
 

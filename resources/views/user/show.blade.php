@@ -37,9 +37,13 @@
 		</div>
 
 		<!-- EDIT BUTTON -->
-		<div class="col-sm-9">
-			<a href="{{ route('user.edit', ['user' => $user->id ]) }}" class="btn btn-info col-sm-6" role="button">Edit Profile</a>
-		</div>
+		@if(Auth::user()->isCurrentUser($user))
+
+			<div class="col-sm-9">
+				<a href="{{ route('user.edit', ['user' => $user->id ]) }}" class="btn btn-info col-sm-6" role="button">Edit Profile</a>
+			</div>
+
+		@endif
 
 		<!-- ADD FRIEND BUTTON -->
 		<div class="col-sm-9">

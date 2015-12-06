@@ -78,13 +78,9 @@
 
 		See new blogposts and (status updates?) on status feed == DONE
 
+	Code up a frontend for editing the blog settings e.g., adding a banner
 
-
-	code up a frontend for editing the blog settings e.g., adding a banner
-
-	Miscellanea
-
-		change edit on user.show so it only shows when you are current user. Probably need a helper function that returns boolean that asks if Auth::user is the user.
+	REFACTOR, REFACTOR, REFACTOR
 
 	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
 

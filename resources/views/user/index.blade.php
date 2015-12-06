@@ -55,16 +55,20 @@
 	<div class="status-feed">
 		<h1> POSTS BY FRIENDS </h1>
 
-		@foreach($currentUser->getAllFriendsBlogPosts() as $newPost)
-			<div class="list-group">
-				<a href="{{route('blog.blogPost.show', getUrlForThisName($newPost->blog), getUrlForThisName($newPost))}}" class="list-group-item">
-					<h4 class="list-group-item-heading">{{$newPost->title}}</h4>
-					<span class="post-date"> {{$newPost->updated_at->diffForHumans()}} </span>
-					<p class="list-group-item-text">{{$newPost->content}}</p>
-				</a>
-			</div>
+		@if(!empty($currentUser->getAllFriendsBlogPosts()))
 
-		@endforeach
+			@foreach($currentUser->getAllFriendsBlogPosts() as $newPost)
+				<div class="list-group">
+					<a href="{{route('blog.blogPost.show', getUrlForThisName($newPost->blog), getUrlForThisName($newPost))}}" class="list-group-item">
+						<h4 class="list-group-item-heading">{{$newPost->title}}</h4>
+						<span class="post-date"> {{$newPost->updated_at->diffForHumans()}} </span>
+						<p class="list-group-item-text">{{$newPost->content}}</p>
+					</a>
+				</div>
+
+			@endforeach
+
+		@endif
 	</div>
 
 @stop

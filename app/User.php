@@ -58,4 +58,18 @@ class User extends Model implements AuthenticatableContract,
     /**
      * MUTATORS AND ACCESSORS
      */
+    
+    /**
+     * EXTRA METHODS
+     */
+    
+    /**
+     * Returns boolean if current user is the user page being viewed
+     * @return boolean
+     */
+    public function isCurrentUser(User $viewingUser)
+    {
+        return $this === $viewingUser;
+    }
+
 }
