@@ -78,13 +78,13 @@
 
 		See new blogposts and (status updates?) on status feed == DONE
 
-	Code up a frontend for editing the blog settings e.g., adding a banner
+	Code up a frontend for editing the blog settings e.g., adding a banner 
+
+	Fork out the packages that I edited so I won't lose all my edits if I do composer update
 
 	REFACTOR, REFACTOR, REFACTOR
 
 		Make it so if a guest visits yappietravels they go to the index page. But if you're logged in you go to your user.index page.
-
-		Fork out the packages that I edited so I won't lose all my edits if I do composer update
 
 	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
 

@@ -4,6 +4,38 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "gridprinciples/friendly",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/PYuen1029/friendly.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "classmap": [""]
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "fzaninotto/faker",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/PYuen1029/Faker.git",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "classmap": [""]
+                }
+            }
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
