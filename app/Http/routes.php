@@ -51,8 +51,7 @@ Route::resource('blog.blogPost.photo', 'PhotoController',[
 	]);
 
 Route::get('/', [
-	'as' => 'index', 
-	'uses' => 'PagesController@index'
+	'uses'		=> 'PagesController@index'
 	]);
 
 // ROUTE MODEL BINDINGS...

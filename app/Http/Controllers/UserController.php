@@ -25,9 +25,13 @@ class UserController extends Controller
     // ATTACH Auth AND IsNotCurrentUser middleware to for all routes except show
     public function __construct()
     {
-         $this->middleware('auth');
+        $this->middleware('auth', 
+            ['except' => ['index']
+        ]);
          
-         $this->middleware('currentUser', ['except' => ['show', 'addFriend'] ]);
+        $this->middleware('currentUser', 
+            ['except' => ['show', 'addFriend']
+        ]);
 
     }
 
