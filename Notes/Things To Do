@@ -2,7 +2,109 @@
 =======       CURRENT     ========
 ==================================
 
-[ initial setup
+[ 
+	Make user/{user}/edit to user/edit
+
+	Code up a frontend for editing the blog settings e.g., adding a banner 
+		
+		For Everyone:
+
+			The initial landing page (/).
+
+				INTEGRATE Theme:http://tympanus.net/Freebies/Sedna/#
+
+			You can see an individual user profile (/user/{user})
+				Theme: same as '/'
+				Should have a profile picture, profile, and recent blog posts (as well as a button view more posts)
+
+				If you are logged in && aren't friends with them, you will see a button to send a friend request.
+					If you are a guest, the button will be faded, and it will say you have to log in in order to send friend requests
+
+			You can see all blogs (/blog [should be changed to ...blogs])
+
+				Theme: same as '/'
+
+				Paginated. Ordered by the ones that were most recently active.
+
+				Should include the author's name that links to /user/{user}
+
+				Sidebars:
+					Sidebar1 should have featured blogs.
+
+					Sidebar2 should have most recent posts.
+
+			You can see all posts (/blogPost)
+				Theme: same as '/'
+
+				Paginated. Ordered by most recent.
+
+				Sidebars: same as '/blog'
+
+			You can see an individual blog (/blog/{blog})
+				Theme: http://ironsummitmedia.github.io/startbootstrap-clean-blog/
+					with the banner customizable by the blog owner
+
+				See a blog-description and shit. And then a paginated list of blogposts
+
+				If you are the owner, you will see an edit button that will redirect to blog/{blog}/edit
+
+			You can see an individual post (/blog/{blog}/blogPost/{blogPost})
+				Theme: same as /blog/{blog}
+
+				Should include a very short description (3 lines max). The meat is the pictures delivered by the slideshow plugin.
+
+				If you are the owner, you will see an edit button that will redirect to blog/{blog}/edit
+
+		For Auth'd Bloggers:
+
+			You can edit your profile (/user/edit)
+				Theme: '/'
+
+			You can edit your blog (/blog/{blog}/edit [change to blog/edit])
+				Change the banner pic
+
+				Change the name and tagline
+
+				Also lists each published blogPost and allows you to edit or delete them
+
+			You can edit a blog post (/blog/{blog}/blogPost/{blogPost}/edit)
+				Allows you to edit the title, tagline, content, and publish date
+
+				Includes dropzone to add regular files
+
+				Includes a featured image that you can edit or add if it is blank
+
+				Includes a gallery of pictures already added, as well as the ability to edit or delete it
+
+
+
+	REFACTOR, REFACTOR, REFACTOR
+
+		Make it so if a guest visits yappietravels they go to the index page. But if you're logged in you go to your user.index page.
+
+	Implement countries' page functionality
+
+	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
+]
+==================================
+========      PHASE 2     ========
+==================================
+[
+	work on regions and countries
+		probably add in PagesController to display all BlogPosts where country is in country.Probably means a BlogPost should have a country field (probably with the country code)
+
+	work on the review angle of the website
+
+	Make Route('/') #recentposts reactive with JS, so if someone creates a new post while you're browsing that page, it will update.
+
+	Make it a lot more javascript-intense. There won't be any separate views for editing a blog post, or blog, or at least it will be possible to edit it straight from blog/{blog}/blogPost/{blogPost}. Similarly with editing your user profile
+
+]
+
+==================================
+========       DONE       ========
+==================================
+[
 	fill out fillables for each model == DONE
 	add relationships == DONE
 	adjust migrations to reflect relationships and migrate:refresh == DONE
@@ -78,19 +180,6 @@
 
 		See new blogposts and (status updates?) on status feed == DONE
 
-	Code up a frontend for editing the blog settings e.g., adding a banner 
-
-	Fork out the packages that I edited so I won't lose all my edits if I do composer update
-
-	REFACTOR, REFACTOR, REFACTOR
-
-		Make it so if a guest visits yappietravels they go to the index page. But if you're logged in you go to your user.index page.
-
-	use mod_rewrite to fix messy urls (read: http://code.tutsplus.com/tutorials/an-in-depth-guide-to-mod_rewrite-for-apache--net-6708)
-
-	work on regions and countries
-		probably add in PagesController to display all BlogPosts where country is in country.Probably means a BlogPost should have a country field (probably with the country code)
-		
-
+	Fork out the packages that I edited so I won't lose all my edits if I do composer update == DONE
 
 ]
