@@ -48,6 +48,11 @@
 	color: #33A29D;
 	font-size: 60px;
 }
+.hostyle a, .hostyle a:link, .hostyle a:visited, .hostyle a:hover, .hostyle a:active 
+{
+	text-decoration: none;
+	color: inherit;
+}
 .pstyle
 {
 	font-family: 'Raleway', sans-serif;

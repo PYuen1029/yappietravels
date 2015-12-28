@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	@yield('meta')
 
 	<title> @yield('title') </title>
 	
@@ -48,10 +49,12 @@
 			<div class="col-md-12 line">
 				<div class="tablebox">
 					<div class="banner-text" id="bannertext">
-						<h1 class="hostyle" id="heads">YappieTravels</h1>
+						<h1 class="hostyle" id="heads">
+							<a href="{{ url('/') }}"> YappieTravels </a>
+						</h1>
 						<p class="pstyle">Post your adventures, you crazy 20-something</p>
 						@if(Request::path() == '/')
-						<a href="#content-body" class="page-scroll arrow"><i class="fa fa-angle-down"></i></a> 
+						<a href="#jump-to" class="page-scroll arrow"><i class="fa fa-angle-down"></i></a> 
 						@endif
 					</div>
 				</div>
@@ -66,14 +69,14 @@
 				<button type="button" class="navbar-toggle menu-button" data-toggle="collapse" data-target="#myNavbar">
 					<span class="glyphicon glyphicon-align-justify"></span>
 				</button>
-				<a class="navbar-brand logo" href="#">YappieTravels</a> 
+				<a class="navbar-brand logo" href="{{ url('/') }}">YappieTravels</a> 
 			</div>
 
 			<div>
 				<nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
 					<ul class="nav navbar-nav navstyle">
-						<li><a href="#features" class="page-scroll">All Blogs</a></li>
-						<li><a href="#gallery" class="page-scroll">All Posts</a></li>
+						<li><a href="{{ url('/blog') }}" class="page-scroll">All Blogs</a></li>
+						<li><a href="{{ url('blogPost') }}" class="page-scroll">All Posts</a></li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right navstyle">
@@ -115,6 +118,8 @@
 	</div>
 	<!-- END NAVBAR -->
 	
+	<!-- START jump-to -->
+	<div class="jump-to" id="jump-to"></div>
 	@yield('content')
 	
 	<!-- FOOTER -->

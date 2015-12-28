@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('meta')
+<meta name="token" value="<?php echo csrf_token() ?>">
+@stop
+
 @section('title')
 	YappieTravels: {{ $user->name }}'s Profile
 @stop
@@ -15,6 +19,10 @@
 @stop
 
 @section('js')
+	<!-- Vue.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.10/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.min.js"></script> 
+    <script src="/js/show.blade.js"></script> 
 @stop
 
 @section('content')
