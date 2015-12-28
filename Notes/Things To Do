@@ -5,17 +5,22 @@
 [ 
 	Make user/{user}/edit to user/edit
 
+	Allow users to change their profile picture...
+
 	Code up a frontend for editing the blog settings e.g., adding a banner 
 		
 		For Everyone:
 
-			The initial landing page (/).
+			The initial landing page (/). == DONE
 
-				INTEGRATE Theme:http://tympanus.net/Freebies/Sedna/#
+				INTEGRATE Theme: Sedulous
 
-			You can see an individual user profile (/user/{user})
+			You can see an individual user profile (/user/{user}) ==
 				Theme: same as '/'
-				Should have a profile picture, profile, and recent blog posts (as well as a button view more posts)
+				Should have a profile picture, profile == DONE
+
+				recent blog posts (as well as a button view more posts) == 
+					Pagination ==
 
 				If you are logged in && aren't friends with them, you will see a button to send a friend request.
 					If you are a guest, the button will be faded, and it will say you have to log in in order to send friend requests
