@@ -21,12 +21,12 @@
 @section('js')
 	<!-- Vue.js JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.10/vue.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.min.js"></script> 
-    <script src="/js/show.blade.js"></script> 
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.min.js"></script> 
+    <script src="/js/user.show.blade.js"></script> 
 @stop
 
 @section('content')
-	<div class="container">
+	<div class="container" id="container">
 	
 		<div class="content-body">
 			<div class="row">
@@ -86,14 +86,27 @@
 		</div>
 
 		<!-- RECENT POSTS -->
-		<div id="recent-posts">
-			<div class="row">
-				@foreach ($user->blog->blogPost as $post)
-					<p> {{$post->title}} </p>
-				@endforeach
-			</div>
+		<div id="recent-posts" class="fh-desc">
+			<h3> Recent Blog Posts </h3>
+			<ul class="nav nav-pills nav-stacked">
+				<li v-for="blogPost in blogPosts" class="featured"> 
+					<a href="#"> @{{ blogPost.title }} </a>
+				</li>
+			</ul>
+			<nav>
+                <ul class="pager">
+                    <li v-show="pagination.previous" class="previous featured">
+                        <a @click="paginate('previous')" class="page-scroll" href="#dreams"><< Previous</a>
+                    </li>
+                    <li v-show="pagination.next" class="next">
+                        <a @click="paginate('next')" class="page-scroll" href="#dreams">Next >></a>
+                    </li>
+                </ul>
+            </nav>
 		</div>
-
+		<pre> 
+			@{{ pagination.next }}
+		</pre>
 		<!-- EDIT PROFILE BUTTON -->
 		@if(Auth::user()->isCurrentUser($user))
 

@@ -34,6 +34,10 @@ Route::resource('user', 'UserController', [
 	'except'	=> ['create', 'store']
 	]);
 
+Route::get('blog/{blog}/api',[
+	'as' => 'blog.api',
+	'uses' => 'BlogController@api'
+	]);
 Route::resource('blog', 'BlogController', [
 	'except'	=> ['create', 'delete', 'store']
 	]);

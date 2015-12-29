@@ -23,6 +23,10 @@
 					Pagination == 
 						check out https://github.com/bestmomo/lumenvue
 
+						I need a backend controller to return JSON data
+
+						I need the vue-resource stuff to send the requests
+
 				If you are logged in && aren't friends with them, you will see a button to send a friend request.
 					If you are a guest, the button will be faded, and it will say you have to log in in order to send friend requests
 
