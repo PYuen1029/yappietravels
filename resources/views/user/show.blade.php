@@ -95,11 +95,8 @@
 			</ul>
 			<nav>
                 <ul class="pager">
-                    <li v-show="pagination.previous" class="previous featured">
-                        <a @click="paginate('previous')" class="page-scroll" href="#dreams"><< Previous</a>
-                    </li>
-                    <li v-show="pagination.next" class="next">
-                        <a @click="paginate('next')" class="page-scroll" href="#dreams">Next >></a>
+                    <li v-show="pagination.more" class="read-more">
+                        <button @click="paginate('more')" class="btn btn-default btn-lg"> Read More </button>
                     </li>
                 </ul>
             </nav>
