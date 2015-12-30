@@ -9,6 +9,7 @@ YappieTravels: All Blogs
 @stop
 
 @section('css')
+
 @stop
 
 @section('js')
@@ -24,19 +25,35 @@ YappieTravels: All Blogs
 @stop
 
 @section('content')
-	<div class="container">
-		<h1> All Blogs </h1>
-		@foreach($allBlogs as $blog)
-			<div class="row">	
-				<h3 class="blog-name"> <a 
-					href="{{ route('blog.show', [
-						'name' => getUrlForThisName($blog)
-					]) }}">
-					{{ $blog->name }} </a> </h3>
-				<p class="author"> {{ $blog->user->name }} </p>
-				<p class="blog-tagline"> {{ $blog->tagline }} </p>
-			</div>
-		@endforeach
+	<div class="container fh-desc" id="container">
+		<div class="col-xs-9 all-blogs">
+			<h3> All Blogs </h3>
+
+			<ul class="nav nav-pills nav-stacked">
+				<li class="featured" v-for="blog in blogs">	
+					<a :href="urlOf(blog)"> 
+						@{{blog.name}} 
+						<!-- <p class="author"> @{{ blog->user->name }} </p> -->
+						<p class="blog-tagline"> @{{ blog.tagline }} </p>
+					</a>
+				</li>
+
+				<nav>
+		            <ul class="pager">
+		                <li v-show="pagination.previous" class="previous ">
+		                    <button @click="paginate('previous')" class="btn btn-default btn-lg"><< Previous</button>
+		                </li>
+		                <li v-show="pagination.next" class="next">
+		                    <button @click="paginate('next')" class="btn btn-default btn-lg" href="#dreams">Next >></button>
+		                </li>
+		            </ul>
+	        	</nav>
+			</ul>
+		</div>
+
+
+
+		
 	</div>
 
 @stop

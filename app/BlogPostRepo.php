@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogPostRepo extends Model
 {
-    public function getPaginatedBlogPosts(Blog $blog, $n = 10)
+    public function getPaginatedBlogPosts(Blog $blog, $n)
     {
     	$blogPosts = $blog->blogPost()
     					->latest()

@@ -9,8 +9,8 @@ use App\Blog;
 use App\BlogPost;
 use App\Photo;
 use App\Region;
+use App\BlogRepo;
 use App\Country;
-use App\BlogPostRepo;
 use Illuminate\Support\Facades\DB;
 use Validator;
 use Auth;
@@ -21,11 +21,11 @@ use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
 {
-    protected $blogPostRepo;
+    protected $blogRepo;
 
-    public function __construct(BlogPostRepo $blogPostRepo)
+    public function __construct(BlogRepo $blogRepo)
     {
-        $this->blogPostRepo = $blogPostRepo;
+        $this->blogRepo = $blogRepo;
 
         $this->middleware('auth', ['except' => array('index', 'show')]);
          
@@ -87,9 +87,9 @@ class BlogController extends Controller
         return redirect(route('blog.show', ['blog' => getUrlForThisName($blog)]));
     }
 
-    public function api(Blog $blog)
+    public function api()
     {
-        return $this->blogPostRepo->getPaginatedBlogPosts($blog, 5);
+        return $this->blogRepo->getPaginatedBlogs(10);
     }
 
 }

@@ -34,21 +34,23 @@ Route::resource('user', 'UserController', [
 	'except'	=> ['create', 'store']
 	]);
 
-Route::get('blog/{blog}/api',[
-	'as' => 'blog.api',
-	'uses' => 'BlogController@api'
+Route::get('blog/api', [
+	'uses' 		=> 'BlogController@api',
+	'as'		=> 'blog.api'
 	]);
 Route::resource('blog', 'BlogController', [
 	'except'	=> ['create', 'delete', 'store']
 	]);
 
-Route::resource('blog.blogPost', 'BlogPostController');
-
-
 Route::get('/blogPost', [
 	'uses'		=> 'BlogPostController@index',
 	'as'		=> 'blogPosts.index'
 	]);
+Route::get('blog/{blog}/api',[
+	'as' => 'blogPost.api',
+	'uses' => 'BlogPostController@api'
+	]);
+Route::resource('blog.blogPost', 'BlogPostController');
 
 Route::resource('blog.blogPost.photo', 'PhotoController',[
 	'except' 	=> ['index', 'show', 'create']

@@ -15,6 +15,7 @@ use App\Country;
 use Illuminate\Support\Facades\DB;
 use Validator;
 use Auth;
+use App\BlogPostRepo;
 
 use Carbon\Carbon;
 
@@ -23,12 +24,16 @@ use App\Http\Controllers\Controller;
 
 class BlogPostController extends Controller
 {
+    protected $blogPostRepo;
+
     // MIDDLEWARES
-    public function __construct()
+    public function __construct(BlogPostRepo $blogPostRepo)
     {
-        $this->middleware('auth', ['except' => array('index', 'show')]);
+        $this->blogPostRepo = $blogPostRepo;
+
+        $this->middleware('auth', ['except' => array('index', 'show', 'api')]);
          
-        $this->middleware('currentUser', ['except' => array('index', 'show')]);
+        $this->middleware('currentUser', ['except' => array('index', 'show', 'api')]);
 
     }
 
@@ -120,4 +125,10 @@ class BlogPostController extends Controller
 
         return Redirect::route('blog.edit', ['blog' => getUrlForThisName($blog)]);
     }
+
+    public function api(Blog $blog)
+    {
+        return $this->blogPostRepo->getPaginatedBlogPosts($blog, 5);
+    }
+
 }

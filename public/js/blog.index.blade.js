@@ -4,11 +4,11 @@ new Vue ({
 	el: '#container',
 
 	data: {
-		blogPosts: [],
+		blogs: [],
         pagination: {
             page: 1,
             previous: false,
-            next: false, 
+            next: false
         },
         error: {
             message: null         
@@ -22,18 +22,19 @@ new Vue ({
 	},
 // I need a backend controller to return a list of paginated blogs (using simplepaginate). Then a frontend here to paginate through it.
 	ready: function() {
-        this.paginateResource = this.$resource('/blog/:blogName/api/?page=:pageId');
-        this.blogUrl = PHPObject.blogUrl;
-        this.sentRequest = PHPObject.sentRequest;
+        this.paginateResource = this.$resource('/blog/api/?page=:pageId');
         this.paginate();
     },
 
     methods: {
         paginate: function(direction) {
-            if (direction === 'more') {
+            if (direction === 'previous') {
+                --this.pagination.page;
+            }
+            if (direction === 'next') {
                 ++this.pagination.page;
             }
-            this.paginateResource.get({blogName: this.blogUrl, pageId: this.pagination.page}, function (data) {
+            this.paginateResource.get({pageId: this.pagination.page}, function (data) {
                 setData(this, data);
             }).error(function (data) {
                 console.log("Error:" + JSON.stringify(data));
@@ -48,30 +49,14 @@ new Vue ({
 				    .replace(/-+$/, '');            // Trim - from end of text
 		// CREDIT TO https://gist.github.com/mathewbyrne/1280286
         },
-        urlOf: function(blogPost) {
-        	return '/blog/' + this.blogUrl + '/blogPost/' + this.slugify(blogPost.title);
-        },
-        sendRequest: function() {
-            this.requestResource.get({user: this.userUrl})
-                .error(function (data) {
-                    console.log("Error:" + JSON.stringify(data));
-                });
-            this.sentRequest = true;
-            event.preventDefault();
+        urlOf: function(blog) {
+        	return '/blog/' + this.slugify(blog.name);
         }
     }
 });
 
 function setData (instance, data) {
-    if (instance.blogPosts.length === 0)
-    {
-    	instance.blogPosts = data.data;
-    }
-
-    else
-    {
-    	instance.blogPosts = instance.blogPosts.concat(data.data);
-    }
+    instance.blogs = data.data;
+    instance.pagination.previous = data.prev_page_url;
     instance.pagination.next = data.next_page_url;
-    instance.pagination.more = (typeof(data.next_page_url) === 'string');
 }
