@@ -3,11 +3,17 @@
 ==================================
 
 [ 
+	Still need to finish Friendly in that only accepted friends will be displayed on user/index
+
 	Make user/{user}/edit to user/edit
 
 	Allow users to change their profile picture...
 
-	Code up a frontend for editing the blog settings e.g., adding a banner 
+	Don't allow users to add themselves...
+
+	Code up a frontend for editing the blog settings e.g., adding a banner
+
+	The Frontend 
 		
 		For Everyone:
 
@@ -15,20 +21,20 @@
 
 				INTEGRATE Theme: Sedulous
 
-			You can see an individual user profile (/user/{user}) ==
+			You can see an individual user profile (/user/{user}) == DONE
 				Theme: same as '/'
 				Should have a profile picture, profile == DONE
 
-				recent blog posts (as well as a button view more posts) == 
-					Pagination == 
+				recent blog posts (as well as a button view more posts) == DONE
+					Pagination == DONE
 						check out https://github.com/bestmomo/lumenvue
 
 						I need a backend controller to return JSON data
 
 						I need the vue-resource stuff to send the requests
 
-				If you are logged in && aren't friends with them, you will see a button to send a friend request.
-					If you are a guest, the button will be faded, and it will say you have to log in in order to send friend requests
+				If you are logged in && aren't friends with them, you will see a button to send a friend request. == DONE
+					If you are a guest, the button will be faded, and it will say you have to log in in order to send friend requests == DONE
 
 			You can see all blogs (/blog [should be changed to ...blogs])
 

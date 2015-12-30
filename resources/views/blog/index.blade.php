@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('meta')
+<meta name="token" value="<?php echo csrf_token() ?>">
+@stop
+
 @section('title')
 YappieTravels: All Blogs
 @stop
@@ -8,6 +12,15 @@ YappieTravels: All Blogs
 @stop
 
 @section('js')
+	<!-- Vue.js JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.10/vue.js"></script>
+   	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.17/vue-resource.js"></script> 
+    <script> 
+    	var PHPObject = {
+    		//
+    	}
+    </script>
+    <script src="/js/blog.index.blade.js"></script>
 @stop
 
 @section('content')

@@ -4,13 +4,10 @@ new Vue ({
 	el: '#container',
 
 	data: {
-		blogUrl: false,
-        userUrl: false,
-        sentRequest: false,
 		blogPosts: [],
         pagination: {
             page: 1,
-            more: false,
+            previous: false,
             next: false, 
         },
         error: {
@@ -23,12 +20,10 @@ new Vue ({
         requestResource: null
 
 	},
-
+// I need a backend controller to return a list of paginated blogs (using simplepaginate). Then a frontend here to paginate through it.
 	ready: function() {
         this.paginateResource = this.$resource('/blog/:blogName/api/?page=:pageId');
-        this.requestResource = this.$resource('/user/:user/addFriend');
         this.blogUrl = PHPObject.blogUrl;
-        this.userUrl = PHPObject.userUrl;
         this.sentRequest = PHPObject.sentRequest;
         this.paginate();
     },

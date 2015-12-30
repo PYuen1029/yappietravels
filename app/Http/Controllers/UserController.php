@@ -120,8 +120,6 @@ class UserController extends Controller
             'start'      => Carbon::now(),
         ]);
 
-        flash()->success("You sent a friend request to $user->name");
-
-        return redirect()->back();
+        return response()->json(['sentRequest' => 'true']);
     }
 }
