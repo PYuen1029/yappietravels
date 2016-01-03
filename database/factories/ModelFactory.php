@@ -18,7 +18,7 @@ $factory->define(App\Blog::class, function (Faker\Generator $faker){
 		'name' 				=> $faker->sentencenoperiod($nbWords = 4),
 		'tagline' 			=> $faker->sentencenoperiod($nbWords = 13),
 		'user_id' 			=> factory('App\User')->create()->id,
-
+        'author'            => $faker->name,
 	];
 });
 

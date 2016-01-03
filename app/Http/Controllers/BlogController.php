@@ -27,7 +27,7 @@ class BlogController extends Controller
     {
         $this->blogRepo = $blogRepo;
 
-        $this->middleware('auth', ['except' => array('index', 'show')]);
+        $this->middleware('auth', ['except' => array('index', 'show', 'api')]);
          
         $this->middleware('currentUser', ['except' => array('index', 'show', 'api')]);
     }

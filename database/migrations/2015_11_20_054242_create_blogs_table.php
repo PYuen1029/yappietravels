@@ -19,6 +19,7 @@ class CreateBlogsTable extends Migration
             $table->string('name');
             $table->string('tagline')->default('My wonderful adventures and travels.');
             $table->boolean('featured')->default(false);
+            $table->string('author');
 
             // FOREIGN KEY FOR user
             $table->integer('user_id')->unsigned();

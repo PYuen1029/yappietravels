@@ -38,13 +38,17 @@ Route::get('blog/api', [
 	'uses' 		=> 'BlogController@api',
 	'as'		=> 'blog.api'
 	]);
+Route::get('blog', [
+	'uses'		=> 'BlogController@index',
+	'as'		=> 'blog.index'
+	]);
 Route::resource('blog', 'BlogController', [
-	'except'	=> ['create', 'delete', 'store']
+	'except'	=> ['index', 'create', 'delete', 'store']
 	]);
 
 Route::get('/blogPost', [
 	'uses'		=> 'BlogPostController@index',
-	'as'		=> 'blogPosts.index'
+	'as'		=> 'blogPost.index'
 	]);
 Route::get('blog/{blog}/api',[
 	'as' => 'blogPost.api',

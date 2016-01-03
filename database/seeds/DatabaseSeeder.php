@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
         factory(App\BlogPost::class, 10)->create();
 
         // create some extra posts
-        factory(App\BlogPost::class, 'extraPosts', 5)->create();
+        factory(App\BlogPost::class, 'extraPosts', 10)->create();
+
+        factory(App\BlogPost::class, 20)->create();
 
         $this->call('FeaturedBlogsSeeder');
         

@@ -2,7 +2,7 @@ Vue.config.debug = true;
 
 new Vue ({
 	el: '#container',
-
+// I will make a component to handle both blog.index and blogPost.index pagination
 	data: {
 		blogs: [],
         pagination: {
@@ -20,7 +20,6 @@ new Vue ({
         requestResource: null
 
 	},
-// I need a backend controller to return a list of paginated blogs (using simplepaginate). Then a frontend here to paginate through it.
 	ready: function() {
         this.paginateResource = this.$resource('/blog/api/?page=:pageId');
         this.paginate();

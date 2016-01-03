@@ -22,5 +22,14 @@ class FeaturedBlogsSeeder extends Seeder
         $blog3 = App\Blog::findOrFail(4);
         $blog3->featured = true;
         $blog3->save();
+        
+        $blog4 = App\Blog::findOrFail(8);
+        $blog4->featured = true;
+        $blog4->save();
+        
+        $blog5 = App\Blog::findOrFail(12);
+        $blog5->featured = true;
+        $blog5->save();
+
     }
 }

@@ -11,7 +11,8 @@ class BlogRepo extends Model
 {
     public function getPaginatedBlogs($n)
     {
-    	$blogs = Blog::latest()->simplePaginate($n);
+    	$blogs = Blog::orderBy('updated_at', 'desc')
+    		->simplePaginate($n);
 
     	return $blogs;
     }

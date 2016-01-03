@@ -75,8 +75,8 @@
 			<div>
 				<nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
 					<ul class="nav navbar-nav navstyle">
-						<li><a href="{{ url('/blog') }}" class="page-scroll">All Blogs</a></li>
-						<li><a href="{{ url('blogPost') }}" class="page-scroll">All Posts</a></li>
+						<li><a href="{{ route('blog.index') }}" class="page-scroll">All Blogs</a></li>
+						<li><a href="{{ route('blogPost.index') }}" class="page-scroll">All Posts</a></li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right navstyle">

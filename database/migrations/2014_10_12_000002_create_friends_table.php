@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -16,7 +17,7 @@ class CreateFriendsTable extends Migration {
 			$table->string('name')->nullable()->default('friend'); // party_id's title.  "Party names Other Party"
 			$table->string('other_name')->nullable()->default('friend'); // other_party_id's title. "Other Party names Party"
 
-			$table->date('start')->nullable()->default(date()); // When did this relationship begin?
+			$table->date('start')->nullable()->default(Carbon::now()); // When did this relationship begin?
 			$table->date('end')->nullable(); // When did this relationship end?
 
 			$table->timestamp('approved_at')->nullable();
