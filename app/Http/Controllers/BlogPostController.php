@@ -131,4 +131,9 @@ class BlogPostController extends Controller
         return $this->blogPostRepo->getPaginatedBlogPosts($blog, 5);
     }
 
+    public function indexapi()
+    {
+        return $this->blogPostRepo->getPaginatedBlogPosts(null, 7);        
+    }
+
 }

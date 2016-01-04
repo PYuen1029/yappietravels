@@ -54,6 +54,10 @@ Route::get('blog/{blog}/api',[
 	'as' => 'blogPost.api',
 	'uses' => 'BlogPostController@api'
 	]);
+Route::get('blogPost/api',[
+	'as' => 'blogPost.index.api',
+	'uses' => 'BlogPostController@indexapi'
+	]);
 Route::resource('blog.blogPost', 'BlogPostController');
 
 Route::resource('blog.blogPost.photo', 'PhotoController',[

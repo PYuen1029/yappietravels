@@ -29,15 +29,19 @@ new Vue ({
         paginate: function(direction) {
             if (direction === 'previous') {
                 --this.pagination.page;
+                this.goToAnchor('jump-to');
+
             }
             if (direction === 'next') {
                 ++this.pagination.page;
+                this.goToAnchor('jump-to');
             }
             this.paginateResource.get({pageId: this.pagination.page}, function (data) {
                 setData(this, data);
             }).error(function (data) {
                 console.log("Error:" + JSON.stringify(data));
-           });
+            });
+
         },
         slugify: function(text) {
         	return text.toString().toLowerCase()
@@ -50,6 +54,11 @@ new Vue ({
         },
         urlOf: function(blog) {
         	return '/blog/' + this.slugify(blog.name);
+        },
+        goToAnchor: function(anchor) {
+            var loc = document.location.toString().split('#')[0];
+            document.location = loc + '#' + anchor;
+            return false;
         }
     }
 });

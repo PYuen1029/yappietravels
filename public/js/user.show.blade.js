@@ -25,7 +25,9 @@ new Vue ({
 	},
 
 	ready: function() {
+        // handles pagination AJAX requests
         this.paginateResource = this.$resource('/blog/:blogName/api/?page=:pageId');
+        // handles friend-adding AJAX requests
         this.requestResource = this.$resource('/user/:user/addFriend');
         this.blogUrl = PHPObject.blogUrl;
         this.userUrl = PHPObject.userUrl;

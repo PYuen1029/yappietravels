@@ -36,9 +36,6 @@ YappieTravels: All Blogs
 	<div class="content-body">
 		<div class="container" id="container">
 			<div class="col-xs-9 all-blogs fh-desc">
-				<pagination> </pagination>
-
-
 
 				<h3> All Blogs </h3>
 
@@ -46,7 +43,6 @@ YappieTravels: All Blogs
 					<li class="featured" v-for="blog in blogs">	
 						<a :href="urlOf(blog)"> 
 							@{{blog.name}}
-							<!-- <p class="author"> @{{ blog->user->name }} </p> -->
 							<span class="byline"> blog by @{{ blog.author }} </span>
 							<p class="blog-body"> 
 								@{{ blog.tagline }} 
@@ -60,7 +56,7 @@ YappieTravels: All Blogs
 			                    <button @click="paginate('previous')" class="btn btn-default btn-lg"><< Previous</button>
 			                </li>
 			                <li v-show="pagination.next" class="next">
-			                    <button @click="paginate('next')" class="btn btn-default btn-lg" href="#dreams">Next >></button>
+			                    <button @click="paginate('next')" class="btn btn-default btn-lg" href="#all-blogs">Next >></button>
 			                </li>
 			            </ul>
 		        	</nav>
